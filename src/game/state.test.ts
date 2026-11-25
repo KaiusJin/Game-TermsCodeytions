@@ -9,9 +9,9 @@ afterEach(() => vi.unstubAllGlobals());
 const run = levels.slice(0, 3).map(level => level.id);
 
 describe('level pool', () => {
-  it('has 50 uniquely named levels, each with hints and an answer', () => {
-    expect(levels).toHaveLength(50);
-    expect(new Set(levels.map(level => level.id)).size).toBe(50);
+  it('has 80 uniquely named levels, each with hints and an answer', () => {
+    expect(levels).toHaveLength(80);
+    expect(new Set(levels.map(level => level.id)).size).toBe(80);
     for (const level of levels) {
       expect(level.Component).toBeDefined();
       expect(level.preload).toBeTypeOf('function');

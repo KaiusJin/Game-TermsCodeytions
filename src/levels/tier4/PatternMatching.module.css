@@ -1,0 +1,5 @@
+.regex { display: block; width: fit-content; margin: 0 auto 14px; padding: 6px 14px; border-radius: 8px; background: var(--ink); color: #9fe2b4; font: 700 16px var(--mono); }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.cell { padding: 12px 6px; border: 2px solid var(--ink); border-radius: 8px; background: #fff; font: 600 14px var(--mono); cursor: pointer; }
+.cell[aria-pressed='true'] { background: var(--blue); color: #fff; }
+@media (max-width: 520px) { .grid { grid-template-columns: repeat(3, 1fr); } }

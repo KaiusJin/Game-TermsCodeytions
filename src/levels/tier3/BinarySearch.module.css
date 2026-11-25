@@ -1,0 +1,8 @@
+.game { display: grid; justify-items: center; gap: 14px; }
+.answer { min-height: 34px; font: 800 24px var(--serif); }
+.answer[data-found='true'] { color: var(--green); }
+.form { display: flex; gap: 10px; }
+.form input { width: 110px; padding: 10px 12px; border: 2px solid var(--ink); border-radius: 10px; font: 700 20px var(--mono); text-align: center; }
+.history { display: flex; gap: 6px; }
+.history span { display: grid; place-items: center; width: 40px; height: 32px; border: 1.5px dashed var(--line-strong); border-radius: 6px; font: 600 12px var(--mono); color: var(--muted); }
+.history span[data-used='true'] { border-style: solid; border-color: var(--ink); color: var(--ink); background: #fff; }

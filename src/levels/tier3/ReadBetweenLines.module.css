@@ -1,0 +1,13 @@
+.sheet { display: grid; grid-template-columns: 52px 1fr; gap: 0; border: 2px solid var(--ink); border-radius: 12px; background: #fff; overflow: hidden; }
+.letters, .acrostic { display: grid; grid-auto-rows: 56px; border: 0; border-right: 2px solid var(--line); background: var(--wash); padding: 0; }
+.letters span, .acrostic span { display: grid; place-items: center; font: 800 26px var(--serif); }
+.acrostic { cursor: pointer; background: var(--blue); color: #fff; border-right-color: var(--blue-dark); transition: background .2s; }
+.acrostic:hover { background: #1d58c3; }
+.rows { list-style: none; margin: 0; padding: 0; }
+.row { display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 10px; border-bottom: 1px solid var(--line); background: #fff; }
+.row:last-child { border-bottom: 0; }
+.num { font: 600 11px var(--mono); color: var(--muted); min-width: 24px; }
+.row p { flex: 1; margin: 0; font: 14px/1.35 var(--serif); }
+.moves { display: grid; gap: 2px; }
+.moves button { width: 26px; height: 22px; border: 1px solid var(--line-strong); border-radius: 4px; background: #fff; font-size: 9px; cursor: pointer; }
+.moves button:disabled { opacity: .3; cursor: default; }

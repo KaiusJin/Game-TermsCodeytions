@@ -1,0 +1,8 @@
+.text { margin: 0; font: 18px/1.9 var(--serif); }
+.wordWrap { position: relative; display: inline-block; }
+.word { border: 0; padding: 0 1px; background: none; font: inherit; color: inherit; cursor: context-menu; text-decoration: underline wavy #e0463c; text-decoration-skip-ink: none; text-underline-offset: 4px; }
+.word[data-fixed='true'] { text-decoration: none; background: var(--wash); border-radius: 4px; }
+.menu { position: absolute; z-index: 3; top: 100%; left: 0; display: grid; min-width: 170px; padding: 6px; background: #fff; border: 2px solid var(--ink); border-radius: 8px; box-shadow: 0 5px 0 var(--ink); font: 13px var(--sans, inherit); }
+.menu small { padding: 4px 8px; font: 10px var(--mono); color: var(--muted); }
+.menu button { border: 0; border-radius: 5px; background: none; padding: 7px 8px; text-align: left; font: 600 14px var(--serif); cursor: pointer; }
+.menu button:hover { background: var(--wash); }

@@ -1,0 +1,4 @@
+.stage { display: grid; place-items: center; align-content: center; gap: 10px; }
+.button { min-width: 180px; min-height: 60px; font-size: 18px; }
+.edit { width: 180px; height: 60px; border: 2px dashed var(--blue); border-radius: 10px; text-align: center; font: 700 18px inherit; font-family: inherit; }
+.owner { font: 10px var(--mono); color: var(--muted); }

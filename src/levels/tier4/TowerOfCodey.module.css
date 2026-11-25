@@ -1,0 +1,8 @@
+.board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.peg { position: relative; height: 190px; border: 0; border-bottom: 8px solid #8a6a3e; border-radius: 6px; background: none; cursor: pointer; }
+.peg[aria-pressed='true'] { background: var(--wash); }
+.pole { position: absolute; left: 50%; bottom: 0; width: 8px; height: 150px; margin-left: -4px; border-radius: 4px 4px 0 0; background: #8a6a3e; }
+.stack { position: absolute; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column-reverse; align-items: center; gap: 2px; }
+.disc { position: relative; display: grid; place-items: center; height: 32px; border: 2px solid var(--ink); border-radius: 8px; background: var(--blue); color: #fff; font: 800 15px var(--serif); transition: transform .12s; }
+.disc[data-lifted='true'] { transform: translateY(-20px); background: var(--accent-mid); }
+.result { display: grid; place-items: center; min-height: 60px; margin-top: 14px; font: 12px var(--mono); color: var(--muted); }

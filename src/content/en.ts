@@ -52,7 +52,7 @@ export const copy = {
   dialogs: {
     howTitle: 'One button. Many possibilities.',
     howIntro: 'Your goal is always the same: find a way to agree. Each agreement has its own little twist.',
-    howNote: 'Each run draws 15 agreements at random from a pool of 50, getting harder as you go. Each agreement is timed (usually 30 seconds). A wrong move or running out of time restarts just that agreement.',
+    howNote: 'Each run draws 15 agreements at random from a pool of 80, getting harder as you go. Each agreement is timed (usually 30 seconds). A wrong move or running out of time restarts just that agreement.',
     levelsTitle: 'Your agreement collection.',
     levelsIntro: 'There are {total} agreements in the pool. Each run draws {n} of them at random — sign them all to fill your collection.',
     newRun: 'Start a new run',

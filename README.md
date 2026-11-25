@@ -2,7 +2,7 @@
 
 A browser puzzle game for the University of Waterloo Computer Science Club. Every screen is an agreement, and every agreement hides a different way to click **Agree**.
 
-- 50 agreements across five difficulty tiers; each run draws 15 at random, easiest first.
+- 80 agreements across five difficulty tiers; each run draws 15 at random, easiest first.
 - Clues live in the fine print, with two levels of optional hints per agreement.
 - Timed attempts, Codey reactions, synthesized stamp sounds, and a shareable end-of-run result.
 - Built with React, TypeScript, Vite and Framer Motion. Fully static, with no backend.
@@ -24,7 +24,7 @@ npm run dev
 | `npm run typecheck` | Type-check the project |
 | `npm run lint` | Run ESLint |
 | `npm run test` | Run unit tests (Vitest) |
-| `npm run test:e2e` | Solve all 50 agreements in a browser (Playwright, against the production build) |
+| `npm run test:e2e` | Solve all 80 agreements in a browser (Playwright, against the production build) |
 | `npm run build` | Build the static site into `dist/` |
 | `npm run preview` | Serve the production build locally |
 
@@ -32,7 +32,7 @@ Before the first e2e run, install the browser with `npx playwright install chrom
 
 ## Playtesting
 
-A hidden answer key shows the solution to the current agreement and lets you jump to any of the 50. To toggle it, type `codey` anywhere outside a text field, or click the ✳ in the footer five times quickly.
+A hidden answer key shows the solution to the current agreement and lets you jump to any of the 80. To toggle it, type `codey` anywhere outside a text field, or click the ✳ in the footer five times quickly.
 
 ## Deployment
 

@@ -1,7 +1,7 @@
 import type { LevelMeta } from '../game/types';
 
 /**
- * Copy for all 50 agreements. Each playthrough draws 15 of them (see game/run.ts).
+ * Copy for all 80 agreements. Each playthrough draws 15 of them (see game/run.ts).
  * `answer` is only ever rendered in the hidden answer drawer.
  */
 export const levelCopy = {
@@ -556,6 +556,317 @@ export const levelCopy = {
     codey: '01000001. Obviously.',
     hints: ["What number is the letter A, in ASCII?", '65 = 64 + 1. Turn on the 64 and 1 switches.'],
     answer: 'Turn on bits 64 and 1 (0100 0001 = “A”), then Agree.',
+  },
+  // ── Expansion pack ──────────────────────────────────────────────────────
+  'bubble-wrap': {
+    tier: 1, title: 'Pop culture',
+    terms: [
+      "Your agreement has been shipped in bubble wrap for its protection.",
+      "Most bubbles contain nothing but air. Some bubbles were packed with extra care.",
+      "Popping is permitted, encouraged, and deeply satisfying.",
+    ],
+    codey: 'Pop pop pop pop.',
+    hints: ["Not every bubble looks quite the same.", 'Pop the slightly darker bubble (row 3, column 6), then click Agree.'],
+    answer: 'Pop the darker bubble (Bubble 18: row 3, column 6) to reveal Agree, then click it.',
+  },
+  'section-nine': {
+    tier: 1, title: 'Section 9',
+    terms: [
+      "These terms are organized into nine collapsible sections for your reading comfort.",
+      "Section 9 is intentionally left empty and may be safely ignored.",
+    ],
+    codey: 'I always skip to the end.',
+    hints: ["Is anything ever really empty?", 'Expand Section 9 and click Agree inside it.'],
+    answer: 'Expand Section 9 (“intentionally left empty”) and click the Agree inside.',
+  },
+  'self-service': {
+    tier: 1, title: 'Self-service',
+    terms: [
+      "To reduce wait times, this agreement is now self-service.",
+      "The official stamp has been left on the desk. Please stamp where indicated.",
+    ],
+    codey: 'Stamp it like you mean it.',
+    hints: ["Stamps belong on paper.", 'Drag the Agree stamp onto the dotted signature line (or focus it and press Enter).'],
+    answer: 'Drag the Agree stamp onto the signature line (keyboard: focus the stamp, press Enter).',
+  },
+  'large-print': {
+    tier: 2, title: 'Large print',
+    terms: [
+      "For accessibility, this agreement is displayed at 1400% magnification.",
+      "Users are reminded that a word seen up close may belong to a longer one.",
+    ],
+    codey: 'I can see my house from here.',
+    hints: ["Step back and see the whole picture.", 'Drag the zoom slider all the way down, then click Agree (the giant “gree” is Disagree).'],
+    answer: 'Zoom out with the slider; the giant “gree” is part of Disagree. Click the real Agree beside it.',
+  },
+  'not-unlike': {
+    tier: 2, title: 'Not unlike',
+    terms: [
+      "Our legal team has phrased the following question as clearly as they legally could.",
+      "Double negatives cancel out, as Codey’s lawyer is fond of saying. Triple negatives are just rude.",
+    ],
+    codey: 'I don’t not understand.',
+    hints: ["Cancel the negatives in pairs.", 'Being unwilling to stop agreeing means you agree, so answer “No”.'],
+    answer: 'Answer “No”. (“Unwilling to refrain from not agreeing” = unwilling to agree.)',
+  },
+  'autocorrect': {
+    tier: 2, title: 'Autocorrect',
+    terms: [
+      "Agreements containing spelling errors cannot be accepted.",
+      "Fortunately, our spellchecker has a suggestion.",
+    ],
+    codey: 'I spell everything with one paw.',
+    hints: ["Something on the page is underlined in red.", 'Click the misspelled “agre”, choose “Agree”, then click Agree.'],
+    answer: 'Click the red-underlined “agre”, pick the “Agree” suggestion, then click the enabled Agree button.',
+  },
+  'rebranding': {
+    tier: 2, title: 'Rebranding',
+    terms: [
+      "This page contains one button, and it says what it says.",
+      "However, buttons may be renamed by their owners at any time. Double-check before you click.",
+    ],
+    codey: 'New name, who dis?',
+    hints: ["Owners rename things by double-clicking them.", 'Double-click the button label (or press F2), change it to “Agree”, press Enter, then click it.'],
+    answer: 'Double-click the Disagree label (or F2), rename it to “Agree”, press Enter, then click it. A plain click on Disagree fails.',
+  },
+  'copy-that': {
+    tier: 2, title: 'Copy that',
+    terms: [
+      "To agree, please enter your personal consent code exactly as shown.",
+      "The code is long. Typing it by hand is permitted but not recommended. Our engineers recommend the oldest trick in the book.",
+    ],
+    codey: 'Ctrl+C, Ctrl+V. The ancient arts.',
+    hints: ["Engineers never type what they can copy.", 'Press the copy button, paste the code into the field, then click Agree.'],
+    answer: 'Click “Copy”, paste into the field (or type CSC-4GR33-7H3-73RM5-0F-C0D3Y-W00F-2026), then Agree.',
+  },
+  'paper-only': {
+    tier: 2, title: 'Paper only',
+    terms: [
+      "Digital signatures are not accepted for this agreement.",
+      "Agreements are only valid on paper. A printer has been provided.",
+    ],
+    codey: 'Paper jam in tray 2.',
+    hints: ["What would you do with a paper form?", 'Click Print and sign with the Agree on page 2 of the preview.'],
+    answer: 'Click 🖨 Print, then click Agree on page 2 of the print preview.',
+  },
+  'overleaf': {
+    tier: 2, title: 'Overleaf',
+    terms: [
+      "The front of this page contains our standard terms.",
+      "Terms continue overleaf.",
+    ],
+    codey: 'Always check the back of the menu.',
+    hints: ["Paper has two sides.", 'Drag the folded bottom-right corner up to turn the page, then click Agree on the back.'],
+    answer: 'Drag the dog-eared corner (or focus it and press Enter) to flip the page; click Agree on the back. Disagree on the front fails.',
+  },
+  'rain-check': {
+    tier: 2, title: 'Rain check',
+    terms: [
+      "This agreement is printed in invisible ink that only appears on dry paper.",
+      "It is raining on campus. It is always raining on campus.",
+      "An umbrella is available at the front desk.",
+    ],
+    codey: 'I hate baths. And rain.',
+    hints: ["Keep the paper dry.", 'Drag the umbrella over the document, wait for the ink to appear, then click Agree.'],
+    answer: 'Drag the umbrella over the paper (or focus it and press Enter); once dry, Agree appears.',
+  },
+  'classified': {
+    tier: 3, title: 'Classified', seconds: 35,
+    terms: [
+      "This agreement is classified. All button labels have been encrypted.",
+      "Our security team shifted every letter three places along the alphabet. Codey says it is unbreakable.",
+    ],
+    codey: 'Julius would be proud.',
+    hints: ["Shift each letter back by three.", 'DJUHH decodes to AGREE. Click it.'],
+    answer: 'Click “DJUHH” (Caesar shift of AGREE). GLVDJUHH = DISAGREE, others fail.',
+  },
+  'binary-search': {
+    tier: 3, title: 'Binary search', seconds: 45,
+    terms: [
+      "Codey is thinking of a number between 1 and 100. Agreement requires guessing it.",
+      "You have seven guesses. Codey will only answer “higher” or “lower”.",
+      "Seven is enough, if you’ve been paying attention in CS 136.",
+    ],
+    codey: 'I’m thinking of a number…',
+    hints: ["Halve the range every time.", 'Always guess the middle of the remaining range (50, then 25 or 75, …).'],
+    answer: 'Binary search: guess the midpoint each time; you always find it within 7 guesses.',
+  },
+  'design-handoff': {
+    tier: 3, title: 'Design handoff', seconds: 40,
+    terms: [
+      "The Agree button was designed, approved and shipped. Then the designer went home.",
+      "Before leaving, they hid it, locked it and buried it under another layer. Developers have full edit access.",
+    ],
+    codey: 'Can we make the logo bigger?',
+    hints: ["Look at the Layers panel.", 'Show the Agree layer, unlock it, bring it forward, then click it on the canvas.'],
+    answer: 'In Layers: show 👁, unlock 🔒 and bring ↑ the “Agree button” layer, then click Agree on the canvas.',
+  },
+  'acrostic': {
+    tier: 3, title: 'Read between the lines', seconds: 45,
+    terms: [
+      "The clauses below were shuffled during printing.",
+      "Clauses must be read in numerical order. Their meaning becomes clear from the very first letter.",
+    ],
+    codey: 'Read it top to bottom. Slowly.',
+    hints: ["Sort first, then read down the left edge.", 'Move the clauses into order §1–§5; the first letters spell AGREE — click them.'],
+    answer: 'Use the arrows to sort clauses §1–§5; the first letters form AGREE, which becomes clickable.',
+  },
+  'save-the-date': {
+    tier: 3, title: 'Save the date', seconds: 35,
+    terms: [
+      "Codey only signs agreements on their birthday.",
+      "Codey was born on π Day, which explains a great deal.",
+    ],
+    codey: 'I’ll have a slice. Of pie.',
+    hints: ["π ≈ 3.14", 'Go back to March and pick the 14th, then Agree.'],
+    answer: 'Navigate the calendar to March, select 14, then click Agree. Any other date fails.',
+  },
+  'pull-request': {
+    tier: 3, title: 'Pull request',
+    terms: [
+      "Both buttons have been placed in a cage for safekeeping.",
+      "Only the metal button is legally binding. The wooden one is decorative and, frankly, a little splintery.",
+      "A magnet has been provided for authorized pulls.",
+    ],
+    codey: 'Opposites attract.',
+    hints: ["Which button would a magnet care about?", 'Drag the magnet to the cage; the metal Agree slides out. Click it.'],
+    answer: 'Drag the magnet next to the cage (or focus it and press Enter); the metal Agree slides out — click it.',
+  },
+  'spot-difference': {
+    tier: 3, title: 'Spot the difference', seconds: 40,
+    terms: [
+      "A duplicate of this agreement was filed by mistake.",
+      "Only the original copy is binding. Please identify every way in which the copy differs.",
+    ],
+    codey: 'They look the same to me. I’m a dog.',
+    hints: ["Compare the right-hand copy carefully: title, picture, seal.", 'In the copy: the misspelled title, the flipped Codey and the red seal. Then Agree.'],
+    answer: 'Click the 3 differences in the copy (title spelling, flipped Codey, red seal), then Agree.',
+  },
+  'dewey': {
+    tier: 3, title: 'Dewey decimal',
+    terms: [
+      "Your agreement has been catalogued in the Davis Centre Library.",
+      "It is shelved under QA76.A37. Please do not reshelve it yourself.",
+      "Borrowing the wrong book incurs a fine and a disappointed look.",
+    ],
+    codey: 'Shh. Library voice.',
+    hints: ["Never judge a book by its title. Read the call numbers.", 'Pull out QA76.A37 (titled “Fine Print”) — not A367 or A38 — and click Agree on its cover.'],
+    answer: 'Click the spine labelled QA76.A37 (“Fine Print”), then Agree on the cover. Other books fail, including the one titled “Agreements”.',
+  },
+  'campus-map': {
+    tier: 3, title: 'Campus map', seconds: 35,
+    terms: [
+      "Agreements are processed in person during office hours.",
+      "Office hours are held in the Davis Centre, room 1350. Bring snacks.",
+    ],
+    codey: 'I always get lost in MC.',
+    hints: ["Find the right building first.", 'Click DC on the map, then room 1350, then Agree.'],
+    answer: 'Click DC on the map, then room 1350, then the Agree at the door.',
+  },
+  'paw-print': {
+    tier: 3, title: 'Paw print', seconds: 35,
+    terms: [
+      "Codey will only shake on an agreement with someone who knows the secret handshake.",
+      "Watch Codey’s paw closely. Then match it.",
+    ],
+    codey: 'Boop. Boop. Boop-boop.',
+    hints: ["Watch which toe beans light up, in order.", 'The sequence is beans 2, 4, 1, 3, 2. Press Show me to replay it.'],
+    answer: 'Tap toe beans 2 → 4 → 1 → 3 → 2 (the order they light up), then Agree. A wrong bean fails.',
+  },
+  'pattern-matching': {
+    tier: 4, title: 'Pattern matching', seconds: 40,
+    terms: [
+      "Our legal department has upgraded to regular expressions.",
+      "Please select every label matching /^Ag+re{2}$/, and nothing else.",
+    ],
+    codey: '.* matches my mood.',
+    hints: ["One or more g, then exactly two e, nothing after.", 'Select Agree, Aggree and Agggree, then Confirm.'],
+    answer: 'Select exactly Agree, Aggree, Agggree → Confirm → Agree. Wrong selection fails.',
+  },
+  'hanoi': {
+    tier: 4, title: 'Tower of Codey', seconds: 45,
+    terms: [
+      "Your agreement arrived as a tower and must be moved to the rightmost peg.",
+      "Move one disc at a time. A larger disc may never sit on a smaller one. Monks have done this for centuries.",
+    ],
+    codey: 'Recursion, but make it wooden.',
+    hints: ["Smallest disc moves every other turn.", 'Moves: 1→3, 1→2, 3→2, 1→3, 2→1, 2→3, 1→3.'],
+    answer: 'Click pegs: 1→3, 1→2, 3→2, 1→3, 2→1, 2→3, 1→3; the finished tower becomes Agree.',
+  },
+  'telegraph': {
+    tier: 4, title: 'Telegraph', seconds: 50,
+    terms: [
+      "This agreement is transmitted by telegraph. Please tap out your consent in Morse code.",
+      "Reference table: A ·—   D —··   E ·   G ——·   I ··   R ·—·   S ···",
+      "End each letter before starting the next. Stop.",
+    ],
+    codey: '·—· ··— ··-· ··-·',
+    hints: ["Spell the word you want, one letter at a time.", 'A ·— | G ——· | R ·—· | E · | E · — press “Next letter” after each.'],
+    answer: 'Tap ·— next, ——· next, ·—· next, · next, · next → AGREE, then Agree.',
+  },
+  'hide-and-seek': {
+    tier: 4, title: 'Hide and seek', seconds: 45,
+    terms: [
+      "To prove you are human, select every image containing Codey.",
+      "Codey is very good at hide and seek. Look at edges, reflections and patterns.",
+      "Codey never goes anywhere without their glasses.",
+    ],
+    codey: 'You’ll never find me.',
+    hints: ["Not every blue dog is Codey.", 'Codey is in tiles 1, 3, 4, 6, 8 and 9 — not the glasses-free plush, the geese or the fox.'],
+    answer: 'Select tiles 1, 3, 4, 6, 8, 9 (ears over books, head over the snowdrift, mug print, reflection, constellation, glasses in box) → Verify → Agree.',
+  },
+  'chain-reaction': {
+    tier: 4, title: 'Chain reaction', seconds: 40,
+    terms: [
+      "This agreement is accepted automatically by a highly sophisticated domino mechanism.",
+      "One push is all it takes. Mind the gap.",
+    ],
+    codey: 'Clack clack clack clack.',
+    hints: ["A chain is only as good as its missing link.", 'Drag the spare domino into the gap, then Push. Click the Agree it unlocks.'],
+    answer: 'Place the spare domino in the gap (drag, or focus + Enter), press Push, then click Agree.',
+  },
+  'balanced-terms': {
+    tier: 4, title: 'Balanced terms',
+    terms: [
+      "This agreement must be perfectly balanced, as all things should be.",
+      "Clause 7 weighs exactly 7 kg. Please counterweigh it using the weights provided.",
+    ],
+    codey: 'I weigh 11 kg. Don’t tell anyone.',
+    hints: ["Make the right side total 7.", 'Put 3 kg and 4 kg on the right pan (or 1 + 6), then Agree.'],
+    answer: 'Place weights totalling 7 kg (e.g. 3 + 4) on the right pan; once level, click Agree.',
+  },
+  'slippery-slope': {
+    tier: 5, title: 'Slippery slope', seconds: 50,
+    terms: [
+      "The floor of this agreement was waxed this morning.",
+      "Once set in motion, your agreement will slide until it hits something.",
+      "Please bring it to rest on the signature square.",
+    ],
+    codey: 'Wheeeeee—',
+    hints: ["Rocks are your brakes.", 'Slide → ↑ → ↑ ←.'],
+    answer: 'Slide right, up, right, up, left (arrow buttons or arrow keys), then click Agree.',
+  },
+  'checkmate': {
+    tier: 5, title: 'Checkmate', seconds: 45,
+    terms: [
+      "Your agreement is a chess piece and moves like a knight.",
+      "It must reach the signature square in four moves or fewer.",
+      "Squares occupied by Disagree are off-limits.",
+    ],
+    codey: 'L-shaped thinking.',
+    hints: ["Two squares one way, one square the other.", 'Route: c4 → e5 → d3 → e1 (columns a–e left to right, rows 1–5 top to bottom).'],
+    answer: 'Knight path from bottom-left: (row 4, col 3) → (row 5, col 5) → (row 3, col 4) → (row 1, col 5), then Agree.',
+  },
+  'measured-consent': {
+    tier: 5, title: 'Measured consent', seconds: 50,
+    terms: [
+      "Consent must be measured precisely: exactly four litres, no more, no less.",
+      "You have a 3-litre jug and a 5-litre jug. Neither is marked.",
+      "Pouring the wrong amount into the consent slot is considered a spill.",
+    ],
+    codey: 'I only drink from puddles.',
+    hints: ["Use the small jug to take water away from the big one.", 'Fill 5, pour into 3, empty 3, pour 5→3, fill 5, pour 5→3: the 5 L jug now holds 4 L.'],
+    answer: 'Fill 5 → pour 5→3 → empty 3 → pour 5→3 → fill 5 → pour 5→3 → pour 5 into slot → Agree.',
   },
 } satisfies Record<string, LevelMeta>;
 

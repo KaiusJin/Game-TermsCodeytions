@@ -1,0 +1,10 @@
+.wrapStage { display: grid; place-items: center; }
+.sheet { display: grid; grid-template-columns: repeat(6, 64px); gap: 6px; padding: 14px; border-radius: 12px; background: repeating-linear-gradient(45deg, #eef4fd 0 6px, #f7faff 6px 12px); border: 2px solid var(--line-strong); }
+.cell { display: grid; place-items: center; height: 64px; }
+.bubble { width: 54px; height: 54px; border-radius: 50%; border: 2px solid #b7cbe8; background: radial-gradient(circle at 32% 28%, #fff 0 18%, #dbe8fb 40%, #c5d9f6 100%); box-shadow: inset -4px -6px 10px #9fb9e033, 0 2px 0 #b7cbe8; cursor: pointer; transition: transform .1s; }
+.bubble:hover { transform: scale(1.05); }
+.bubble:active { transform: scale(.9); }
+.bubble[data-special='true'] { background: radial-gradient(circle at 32% 28%, #fff 0 18%, #d2e1f8 40%, #b9cff1 100%); }
+.bubble[data-popped='true'] { background: none; border-style: dashed; border-color: #cfd9ea; box-shadow: none; transform: scale(.82); cursor: default; }
+.prize { min-height: 40px; padding: 8px 10px; font-size: 12px; }
+@media (max-width: 560px) { .sheet { grid-template-columns: repeat(6, 44px); gap: 4px; padding: 8px; } .cell { height: 44px; } .bubble { width: 38px; height: 38px; } .prize { padding: 6px; font-size: 10px; min-height: 32px; } }

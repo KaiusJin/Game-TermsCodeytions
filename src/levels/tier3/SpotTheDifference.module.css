@@ -1,0 +1,15 @@
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.sheet { position: relative; display: grid; gap: 12px; padding: 18px 16px 14px; background: #fff; border: 2px solid var(--ink); border-radius: 8px; }
+.tag { position: absolute; top: -10px; left: 12px; padding: 1px 8px; border-radius: 4px; background: var(--ink); color: #fff; font: 10px var(--mono); }
+.title { font: 800 16px var(--serif); }
+.lines { display: grid; gap: 6px; }
+.lines i { height: 5px; border-radius: 3px; background: #e7eef8; }
+.lines i:nth-child(3) { width: 70%; }
+.bottom { display: flex; align-items: end; justify-content: space-between; }
+.codey { width: 64px; height: auto; display: block; }
+.seal { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; border: 3px double var(--blue); color: var(--blue); font: 800 11px var(--mono); }
+.seal[data-red='true'] { border-color: #c8322b; color: #c8322b; }
+.spot { all: unset; display: inline-block; cursor: pointer; border-radius: 8px; }
+.spot:focus-visible { outline: 2px solid var(--accent-mid); }
+.spot[data-found='true'] { box-shadow: 0 0 0 3px #e0463c; }
+.count { text-align: center; margin: 12px 0 0; font: 12px var(--mono); color: var(--muted); }

@@ -1,0 +1,16 @@
+.stage { padding: 14px; }
+.map { position: relative; height: 280px; border-radius: 12px; background: #dfeedd; overflow: hidden; border: 2px solid var(--ink); }
+.map::before { content: ''; position: absolute; inset: 9% 8%; border: 10px solid #f3f0e6; border-radius: 50%; }
+.ring { position: absolute; left: 50%; bottom: 3%; transform: translateX(-50%); font: 10px var(--mono); color: #6b7a63; }
+.building { position: absolute; border: 2px solid var(--ink); border-radius: 6px; background: #fff; font: 800 13px var(--mono); cursor: pointer; box-shadow: 0 3px 0 var(--ink); }
+.building:hover { background: var(--wash); }
+.note { position: absolute; left: 10px; top: 8px; margin: 0; padding: 4px 8px; border-radius: 6px; background: #fff; font: 11px var(--mono); }
+.floor { border: 2px solid var(--ink); border-radius: 12px; background: #fff; overflow: hidden; }
+.floorHead { display: flex; align-items: center; gap: 12px; padding: 8px 12px; background: var(--ink); color: #fff; }
+.floorHead button { border: 1px solid #ffffff55; border-radius: 6px; background: none; color: #fff; padding: 4px 10px; cursor: pointer; }
+.floorHead strong { font: 700 13px var(--serif); }
+.rooms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 14px; background: repeating-linear-gradient(0deg, #f3f6fb 0 2px, #fff 2px 26px); }
+.room { display: grid; place-items: center; height: 58px; border: 2px solid var(--ink); border-radius: 6px; background: #fff; font: 700 14px var(--mono); cursor: pointer; }
+.room small { font: 9px var(--mono); color: var(--red); }
+.room[data-open='true'] { background: var(--wash); }
+.door { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 0 14px 14px; font: 12px var(--mono); color: var(--muted); }

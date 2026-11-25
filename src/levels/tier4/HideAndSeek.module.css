@@ -1,0 +1,51 @@
+.captcha { width: min(380px, 100%); margin: 0 auto; border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; background: #fff; }
+.head { display: grid; gap: 2px; padding: 12px 16px; background: var(--blue); color: #fff; }
+.head strong { font: 800 24px var(--serif); }
+.head small { font-size: 11px; opacity: .85; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; }
+.tile { position: relative; aspect-ratio: 1; padding: 0; border: 0; overflow: hidden; cursor: pointer; transition: transform .12s; }
+.tile > div { position: absolute; inset: 0; overflow: hidden; }
+.tile img { position: absolute; display: block; height: auto; }
+.tile[aria-pressed='true'] { transform: scale(.86); outline: 4px solid var(--blue); }
+.tile[aria-pressed='true']::after { content: '✓'; position: absolute; z-index: 5; top: 4px; left: 4px; width: 22px; height: 22px; border-radius: 50%; background: var(--blue); color: #fff; font: 700 13px/22px sans-serif; }
+.foot { display: flex; justify-content: flex-end; padding: 10px; border-top: 1px solid var(--line); }
+.ok { color: var(--green); font-weight: 700; padding: 12px 8px; }
+
+/* 1 · bookshelf: only Codey's ears peek over the books. */
+.shelf { background: #6b4f2a; }
+.shelfCodey { width: 78%; left: 14%; top: 26%; }
+.books { position: absolute; left: 0; right: 0; bottom: 0; height: 58%; display: flex; gap: 2px; padding: 0 4px; background: #6b4f2a; }
+.books i { flex: 1; border-radius: 3px 3px 0 0; }
+/* 2 · couch with a glasses-free blue plush. */
+.couch { background: linear-gradient(180deg, #f2e6d6 60%, #c98c6a 60%); }
+.plush { position: absolute; width: 62%; left: 19%; top: 18%; }
+.cushion { position: absolute; left: 6%; right: 6%; bottom: 8%; height: 20%; border-radius: 10px; background: #b87458; }
+/* 3 · snow: only the tail sticks out of the drift. */
+.snow { background: linear-gradient(180deg, #cfe0f5, #eef4fb); }
+.snowCodey { width: 90%; left: 34%; top: 26%; }
+.mound { position: absolute; left: -10%; right: 22%; bottom: -14%; height: 78%; border-radius: 50% 50% 0 0; background: #fff; box-shadow: inset 0 6px 0 #e3ecf7; }
+/* 4 · mug print. */
+.cafe { background: #e9d8c3; }
+.mug { position: absolute; left: 22%; top: 26%; width: 48%; height: 54%; border-radius: 4px 4px 14px 14px; background: #fff; border: 3px solid #8a6a3e; }
+.mug::after { content: ''; position: absolute; right: -26%; top: 22%; width: 26%; height: 40%; border: 3px solid #8a6a3e; border-left: 0; border-radius: 0 12px 12px 0; }
+.mug img { width: 34%; left: 33%; top: 26%; opacity: .85; }
+.steam { position: absolute; left: 36%; top: 6%; width: 14px; height: 22px; border-left: 3px solid #fff; border-radius: 50%; opacity: .8; }
+/* 5 · geese only. */
+.field { display: flex; align-items: flex-end; justify-content: center; gap: 0; padding-bottom: 8%; background: linear-gradient(180deg, #d9ecff 55%, #b5d79b 55%); }
+.flip { transform: scaleX(-1); }
+/* 6 · window reflection. */
+.window { background: linear-gradient(160deg, #a9c7ec, #e3eefb); }
+.reflection { width: 64%; left: 20%; top: 18%; opacity: .2; transform: scaleX(-1); filter: blur(.4px); }
+.frame { position: absolute; inset: 6%; border: 6px solid #fff; background: linear-gradient(90deg, transparent calc(50% - 3px), #fff calc(50% - 3px) calc(50% + 3px), transparent 0), linear-gradient(0deg, transparent calc(50% - 3px), #fff calc(50% - 3px) calc(50% + 3px), transparent 0); }
+/* 7 · chalk fox. */
+.board { background: #2f4a3a; border: 6px solid #8a6a3e; box-sizing: border-box; }
+.fox { position: absolute; width: 78%; left: 11%; top: 18%; }
+/* 8 · constellation. */
+.sky { background: radial-gradient(circle at 70% 20%, #2c3f6b, #0f1830); }
+.sky i { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #fff; }
+.constellation { width: 56%; left: 22%; top: 20%; filter: brightness(0) invert(1); opacity: .22; }
+/* 9 · cardboard box: only the glasses glint through the hole. */
+.box { background: #e7d3b0; }
+.hole { position: absolute; left: 22%; top: 30%; width: 40%; height: 40%; border-radius: 50%; overflow: hidden; background: #2b1d0e; box-shadow: inset 0 0 0 4px #8a6a3e; }
+.hole img { width: 260%; left: -78%; top: -40%; }
+.flap { position: absolute; left: 0; right: 0; top: 0; height: 18%; background: #d4b98d; border-bottom: 3px solid #8a6a3e; }

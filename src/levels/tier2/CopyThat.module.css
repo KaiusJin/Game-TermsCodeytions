@@ -1,0 +1,5 @@
+.codeBox { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 2px solid var(--ink); border-radius: 10px; background: var(--ink); color: #fff; }
+.codeBox code { flex: 1; overflow-wrap: anywhere; font: 600 14px var(--mono); letter-spacing: 1px; user-select: none; }
+.copy { flex: none; border: 1px solid #ffffff55; border-radius: 6px; background: #ffffff14; color: #fff; padding: 6px 10px; font: 12px var(--mono); cursor: pointer; }
+.label { display: block; margin: 18px 0 6px; font: 600 11px var(--mono); letter-spacing: 1px; text-transform: uppercase; color: var(--blue-text); }
+.input { width: 100%; padding: 12px 14px; border: 2px solid var(--ink); border-radius: 10px; font: 14px var(--mono); }

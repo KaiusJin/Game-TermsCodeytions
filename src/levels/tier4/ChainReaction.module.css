@@ -1,0 +1,10 @@
+.stage { display: grid; gap: 30px; align-content: center; }
+.track { display: flex; align-items: flex-end; gap: 22px; padding: 0 10px 0 20px; border-bottom: 4px solid var(--ink); min-height: 110px; }
+.domino, .slot, .spare { display: block; width: 16px; height: 80px; border-radius: 3px; }
+.domino { background: var(--ink); transform-origin: right bottom; box-shadow: inset 0 0 0 2px #fff3; }
+.domino::after { content: ''; display: block; width: 6px; height: 6px; margin: 16px auto; border-radius: 50%; background: #fff; }
+.slot { border: 2px dashed var(--blue); background: var(--wash); }
+.target { margin-left: auto; }
+.controls { display: flex; align-items: center; justify-content: center; gap: 30px; }
+.spare { background: var(--blue); cursor: grab; touch-action: none; transform: rotate(80deg); box-shadow: 0 4px 0 #0002; }
+.spare:focus-visible { outline: 3px solid var(--accent-mid); }

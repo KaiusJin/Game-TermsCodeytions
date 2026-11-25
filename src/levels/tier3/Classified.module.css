@@ -1,0 +1,6 @@
+.stage { display: grid; place-items: center; }
+.folder { position: relative; width: min(420px, 100%); padding: 40px 22px 26px; border: 2px solid var(--ink); border-radius: 4px 16px 6px 6px; background: #f1e7cf; box-shadow: 0 6px 0 var(--ink); }
+.stamp { position: absolute; top: 10px; right: 14px; padding: 2px 10px; border: 3px solid #c8322b; color: #c8322b; font: 900 13px var(--mono); letter-spacing: 2px; transform: rotate(6deg); opacity: .8; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.cipher { min-width: 90px; padding: 12px 14px; border: 2px solid var(--ink); border-radius: 6px; background: #fff; font: 800 15px var(--mono); letter-spacing: 2px; cursor: pointer; box-shadow: 0 3px 0 var(--ink); }
+.cipher:hover { background: var(--wash); }

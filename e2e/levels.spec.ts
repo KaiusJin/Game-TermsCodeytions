@@ -7,6 +7,21 @@ type Solver = (page: Page, stage: Locator) => Promise<void>;
 const button = (scope: Page | Locator, name: string | RegExp) => scope.getByRole('button', { name, exact: typeof name === 'string' });
 const agree = (stage: Locator) => button(stage, 'Agree');
 
+async function dragTo(page: Page, source: Locator, x: number, y: number) {
+  const box = await source.boundingBox();
+  if (!box) throw new Error('drag source has no box');
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(x, y, { steps: 15 });
+  await page.mouse.up();
+}
+
+async function center(target: Locator, dx = 0, dy = 0) {
+  const box = await target.boundingBox();
+  if (!box) throw new Error('target has no box');
+  return [box.x + box.width / 2 + dx, box.y + box.height / 2 + dy] as const;
+}
+
 async function drag(page: Page, target: Locator, dx: number, dy: number) {
   const box = await target.boundingBox();
   if (!box) throw new Error('drag target has no box');
@@ -239,6 +254,156 @@ const solvers: Record<LevelId, Solver> = {
     await switches.nth(7).check({ force: true });
     await agree(stage).click();
   },
+  // Expansion pack
+  'bubble-wrap': async (_, stage) => {
+    await button(stage, 'Bubble 18').click();
+    await agree(stage).click();
+  },
+  'section-nine': async (_, stage) => {
+    await button(stage, /Section 9/).click();
+    await agree(stage).click();
+  },
+  'self-service': async (page, stage) => {
+    const [x, y] = await center(stage.getByText('stamp here'));
+    await dragTo(page, button(stage, /^Agree stamp/), x, y);
+  },
+  'large-print': async (_, stage) => {
+    await stage.getByLabel('Zoom').fill('0');
+    await agree(stage).click();
+  },
+  'not-unlike': async (_, stage) => { await button(stage, 'No').click(); },
+  'autocorrect': async (_, stage) => {
+    await button(stage, /^Spelling suggestions/).click();
+    await stage.getByRole('menuitem', { name: 'Agree', exact: true }).click();
+    await agree(stage).click();
+  },
+  'rebranding': async (_, stage) => {
+    await button(stage, 'Disagree').dblclick();
+    await stage.getByLabel('Rename button').fill('Agree');
+    await stage.getByLabel('Rename button').press('Enter');
+    await agree(stage).click();
+  },
+  'copy-that': async (_, stage) => {
+    await stage.getByLabel('Your consent code').fill('CSC-4GR33-7H3-73RM5-0F-C0D3Y-W00F-2026');
+    await agree(stage).click();
+  },
+  'paper-only': async (page, stage) => {
+    await button(stage, '🖨 Print').click();
+    await agree(page.getByRole('dialog', { name: 'Print preview' })).click();
+  },
+  'overleaf': async (page, stage) => {
+    await drag(page, button(stage, /^Fold the corner/), -130, -130);
+    await agree(stage).click();
+  },
+  'rain-check': async (page, stage) => {
+    const [x, y] = await center(stage.getByText('Terms & Codeytions'), 0, -10);
+    await dragTo(page, button(stage, /^Umbrella/), x, y);
+    await agree(stage).click({ timeout: 5000 });
+  },
+  'classified': async (_, stage) => { await button(stage, 'DJUHH').click(); },
+  'binary-search': async (_, stage) => {
+    let lo = 1;
+    let hi = 100;
+    for (let i = 0; i < 7; i++) {
+      const mid = Math.floor((lo + hi) / 2);
+      await stage.getByLabel('Your guess').fill(String(mid));
+      await stage.getByLabel('Your guess').press('Enter');
+      const answer = await stage.getByLabel('Codey’s answer').textContent();
+      if (answer?.startsWith('Yes')) break;
+      if (answer?.startsWith('Higher')) lo = mid + 1; else hi = mid - 1;
+    }
+    await agree(stage).click();
+  },
+  'design-handoff': async (_, stage) => {
+    for (const name of ['Show Agree button', 'Unlock Agree button', 'Bring Agree button forward']) await button(stage, name).click();
+    await agree(stage).click();
+  },
+  'acrostic': async (_, stage) => {
+    for (let i = 0; i < 20; i++) {
+      const order = await stage.locator('[data-n]').evaluateAll(els => els.map(el => Number((el as HTMLElement).dataset.n)));
+      const at = order.findIndex((n, j) => j < order.length - 1 && n > order[j + 1]);
+      if (at < 0) break;
+      await button(stage, `Move §${order[at + 1]} up`).click();
+    }
+    await button(stage, 'AGREE').click();
+  },
+  'save-the-date': async (_, stage) => {
+    for (let i = 0; i < 12 && !(await stage.getByText('March 2026').isVisible()); i++) await button(stage, 'Previous month').click();
+    await button(stage, '14').click();
+    await button(stage, /^Agree on/).click();
+  },
+  'pull-request': async (page, stage) => {
+    const box = await stage.locator('[class*="cage"]').boundingBox();
+    if (!box) throw new Error('no cage');
+    await dragTo(page, button(stage, /^Magnet/), box.x + box.width + 40, box.y + box.height / 2);
+    await agree(stage).click();
+  },
+  'spot-difference': async (_, stage) => {
+    for (let i = 0; i < 3; i++) await button(stage, 'Suspicious detail').nth(i).click();
+    await agree(stage).click();
+  },
+  'dewey': async (_, stage) => {
+    await button(stage, 'QA76.A37').click();
+    await agree(stage).click();
+  },
+  'campus-map': async (_, stage) => {
+    await button(stage, 'DC').click();
+    await button(stage, '1350').click();
+    await agree(stage).click();
+  },
+  'paw-print': async (_, stage) => {
+    await expect(button(stage, 'Toe bean 1')).toBeEnabled({ timeout: 8000 });
+    for (const bean of [2, 4, 1, 3, 2]) await button(stage, `Toe bean ${bean}`).click();
+    await agree(stage).click();
+  },
+  'pattern-matching': async (_, stage) => {
+    await agree(stage).first().click();
+    for (const label of ['Aggree', 'Agggree']) await button(stage, label).click();
+    await button(stage, 'Confirm').click();
+    await agree(stage).last().click();
+  },
+  'hanoi': async (_, stage) => {
+    for (const [from, to] of [[1, 3], [1, 2], [3, 2], [1, 3], [2, 1], [2, 3], [1, 3]]) {
+      await button(stage, `Peg ${from}`).click();
+      await button(stage, `Peg ${to}`).click();
+    }
+    await button(stage, 'AGR + EE = Agree').click();
+  },
+  'telegraph': async (_, stage) => {
+    for (const code of ['.-', '--.', '.-.', '.', '.']) {
+      for (const symbol of code) await button(stage, symbol === '.' ? 'Dot' : 'Dash').click();
+      await button(stage, 'Next letter').click();
+    }
+    await agree(stage).click();
+  },
+  'hide-and-seek': async (_, stage) => {
+    for (const tile of [1, 3, 4, 6, 8, 9]) await button(stage, `Tile ${tile}`).click();
+    await button(stage, 'Verify').click();
+    await agree(stage).click();
+  },
+  'chain-reaction': async (page, stage) => {
+    const [x, y] = await center(stage.getByLabel('Gap', { exact: true }));
+    await dragTo(page, button(stage, /^Spare domino/), x, y);
+    await button(stage, 'Push').click();
+    await agree(stage).click({ timeout: 6000 });
+  },
+  'balanced-terms': async (_, stage) => {
+    await button(stage, '3 kg').click();
+    await button(stage, '4 kg').click();
+    await agree(stage).click();
+  },
+  'slippery-slope': async (_, stage) => {
+    for (const dir of ['right', 'up', 'right', 'up', 'left']) await button(stage, `Slide ${dir}`).click();
+    await agree(stage).click();
+  },
+  'checkmate': async (_, stage) => {
+    for (const square of [/^c4$/, /^e5$/, /^d3$/, /^e1/]) await button(stage, square).click();
+    await agree(stage).click();
+  },
+  'measured-consent': async (_, stage) => {
+    for (const step of ['Fill 5 L', 'Pour 5 L → 3 L', 'Empty 3 L', 'Pour 5 L → 3 L', 'Fill 5 L', 'Pour 5 L → 3 L', 'Pour 5 L into slot']) await button(stage, step).click();
+    await agree(stage).click();
+  },
 };
 
 async function openLevel(page: Page, title: string) {
@@ -246,7 +411,7 @@ async function openLevel(page: Page, title: string) {
   await page.locator('body').click({ position: { x: 5, y: 5 } });
   await page.keyboard.type('codey');
   const key = page.getByRole('complementary', { name: 'Answer key (playtesting)' });
-  await key.getByRole('button', { name: /All 50 agreements/ }).click();
+  await key.getByRole('button', { name: /All \d+ agreements/ }).click();
   await key.locator('li button').filter({ has: page.locator('b').getByText(title, { exact: true }) }).click();
   await button(key, 'Hide answer key').click();
   const stage = page.getByRole('region', { name: new RegExp(`: ${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`) });

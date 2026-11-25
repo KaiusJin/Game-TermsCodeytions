@@ -1,0 +1,15 @@
+.stage { display: grid; justify-items: center; }
+.paw { position: relative; width: 220px; height: 200px; }
+.pad { position: absolute; left: 50%; bottom: 0; width: 120px; height: 96px; margin-left: -60px; border-radius: 50% 50% 46% 46%; background: #f4b9c2; border: 3px solid var(--ink); }
+.bean { position: absolute; width: 46px; height: 56px; border-radius: 50%; border: 3px solid var(--ink); background: #f4b9c2; cursor: pointer; transition: background .1s, transform .1s; }
+.bean[data-bean='0'] { left: 6px; top: 64px; transform: rotate(-24deg); }
+.bean[data-bean='1'] { left: 56px; top: 14px; transform: rotate(-8deg); }
+.bean[data-bean='2'] { right: 56px; top: 14px; transform: rotate(8deg); }
+.bean[data-bean='3'] { right: 6px; top: 64px; transform: rotate(24deg); }
+.bean[data-lit='true'] { background: var(--blue); box-shadow: 0 0 18px var(--accent-mid); }
+.bean:active:not(:disabled) { background: var(--accent); }
+.bean:disabled { cursor: default; }
+.controls { display: flex; align-items: center; gap: 16px; margin-top: 14px; }
+.dots { display: flex; gap: 6px; }
+.dots i { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--ink); }
+.dots i[data-on='true'] { background: var(--blue); }

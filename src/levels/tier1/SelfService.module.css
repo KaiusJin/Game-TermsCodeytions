@@ -1,0 +1,14 @@
+.desk { min-height: 300px; display: flex; align-items: center; justify-content: space-around; gap: 20px; background: linear-gradient(180deg, #e6edf8, #d9e4f4); }
+.paper { width: min(300px, 60%); padding: 22px; background: #fff; border: 1px solid var(--line-strong); box-shadow: 4px 6px 0 #1d2f5214; transform: rotate(-2deg); }
+.line { margin: 0 0 14px; font: 700 13px var(--serif); }
+.fake { display: grid; gap: 8px; margin-bottom: 26px; }
+.fake i { height: 6px; border-radius: 3px; background: #e7eef8; }
+.fake i:nth-child(2) { width: 80%; }
+.fake i:nth-child(3) { width: 60%; }
+.zone { display: grid; place-items: center; height: 70px; border-bottom: 2px dashed var(--ink); }
+.hint { font: 11px var(--mono); color: var(--muted); }
+.impression { padding: 4px 12px; border: 4px double var(--blue); border-radius: 6px; color: var(--blue); font: 900 26px var(--serif); transform: rotate(-8deg); opacity: .85; }
+.stamp { position: relative; display: grid; justify-items: center; padding: 0; border: 0; background: none; cursor: grab; touch-action: none; z-index: 2; }
+.stamp:active { cursor: grabbing; }
+.handle { width: 34px; height: 46px; border-radius: 16px 16px 6px 6px; background: linear-gradient(90deg, #6b4f2a, #8a6a3e); border: 2px solid var(--ink); }
+.face { margin-top: -2px; padding: 10px 14px; border: 2px solid var(--ink); border-radius: 6px; background: var(--blue); color: #fff; font: 900 14px var(--mono); letter-spacing: 2px; box-shadow: 0 4px 0 var(--ink); }

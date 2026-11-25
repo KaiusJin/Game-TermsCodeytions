@@ -1,0 +1,10 @@
+.stage { display: grid; place-items: center; min-height: 280px; }
+.shelf { display: flex; align-items: flex-end; gap: 4px; padding: 0 12px; border-bottom: 10px solid #8a6a3e; }
+.spine { display: flex; flex-direction: column; justify-content: space-between; align-items: center; width: 44px; padding: 10px 2px 8px; border: 2px solid #1d2f52; border-bottom: 0; border-radius: 4px 4px 0 0; color: #fff; cursor: pointer; }
+.spine:hover { filter: brightness(1.1); transform: translateY(-4px); }
+.spineTitle { writing-mode: vertical-rl; transform: rotate(180deg); font: 700 11px var(--serif); }
+.call { white-space: pre; padding: 2px; border-radius: 2px; background: #fff; color: var(--ink); font: 700 8px/1.2 var(--mono); text-align: center; }
+.cover { position: absolute; display: grid; justify-items: center; gap: 8px; padding: 26px 30px; border: 3px solid var(--ink); border-radius: 6px 12px 12px 6px; background: var(--blue); color: #fff; box-shadow: 0 10px 30px #0004; }
+.cover small { font: 10px var(--mono); opacity: .8; }
+.cover strong { font: 800 22px var(--serif); }
+@media (max-width: 560px) { .spine { width: 34px; } }
