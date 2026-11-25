@@ -1,0 +1,4 @@
+.darkStage { padding: 0; border-color: var(--ink); }
+.darkArea { position: relative; height: 300px; background: #eef4fd; cursor: none; }
+.darkButton { position: absolute; }
+.darkness { position: absolute; inset: 0; pointer-events: none; }

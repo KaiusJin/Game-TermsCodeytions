@@ -1,0 +1,7 @@
+.needleGrid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.needle { min-height: 34px; padding: 4px 2px; border: 1.5px solid var(--ink); border-radius: 6px; background: var(--paper); font: 600 11px var(--mono); cursor: pointer; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.needle:hover { background: var(--wash); }
+@media (max-width: 560px) {
+  .needleGrid { gap: 4px; }
+  .needle { font-size: 9px; min-height: 30px; }
+}

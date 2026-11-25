@@ -1,0 +1,4 @@
+.collection { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.collection span { padding: 5px 9px; border: 1.5px solid var(--line-strong); border-radius: 6px; font: 11px var(--mono); color: #a7b6cf; }
+.collection span[data-seen='true'] { border-color: var(--ink); background: var(--accent); color: var(--ink); font-weight: 700; }
+.actions { display: flex; justify-content: center; margin-top: 28px; }

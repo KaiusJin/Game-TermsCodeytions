@@ -1,0 +1,4 @@
+.centerStage { display: grid; place-items: center; }
+.hold { position: relative; overflow: hidden; width: 220px; min-height: 64px; font-size: 18px; touch-action: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.holdFill { position: absolute; inset: 0; background: var(--ink); transform-origin: left; opacity: .85; }
+.holdLabel { position: relative; mix-blend-mode: difference; color: var(--accent); }

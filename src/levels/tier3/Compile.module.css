@@ -1,0 +1,6 @@
+.kw { color: var(--accent); }
+.token { font: inherit; color: #ff9d8a; background: #ffffff10; border: 1px dashed #ff9d8a88; border-radius: 4px; padding: 0 4px; cursor: pointer; }
+.token:hover { background: #ffffff22; }
+.console { padding: 10px 14px; border-top: 1px solid #333; font: 12px var(--mono); color: #b0bdd3; }
+.console[data-ok='false'] { color: #ff8a80; }
+.console[data-ok='true'] { color: #7ee2a8; }

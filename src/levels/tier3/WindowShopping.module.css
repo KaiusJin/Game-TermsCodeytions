@@ -1,0 +1,9 @@
+.windows { padding: 0; }
+.windowArea { position: relative; height: 300px; display: grid; place-items: center; }
+.windowAgree { position: absolute; }
+.popup { position: absolute; background: var(--paper); border: 2px solid var(--ink); border-radius: 10px; box-shadow: 0 6px 0 var(--ink), 0 20px 40px #0002; overflow: hidden; }
+.popupBar { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 6px 6px 12px; background: var(--ink); color: var(--accent); font: 700 11px var(--mono); cursor: grab; touch-action: none; user-select: none; }
+.popup[data-protected='true'] .popupBar { background: var(--red); color: #fff; }
+.popupBar button { width: 24px; height: 24px; border: 0; border-radius: 5px; background: #ffffff22; color: inherit; font-size: 16px; line-height: 1; cursor: pointer; }
+.popupBar button:hover { background: #ffffff44; }
+.popup p { margin: 0; padding: 16px 14px 20px; font-size: 13px; line-height: 1.5; }

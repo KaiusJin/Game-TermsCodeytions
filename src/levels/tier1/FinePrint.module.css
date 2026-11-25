@@ -1,0 +1,8 @@
+.huge { font-size: 22px; padding: 18px 54px; letter-spacing: 3px; }
+.fine { margin-top: 26px; color: #7f8fab; font-size: 9px; line-height: 1.6; }
+.fine p { margin: 0 0 6px; }
+.dot { all: unset; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); cursor: pointer; vertical-align: middle; margin-left: 2px; }
+.dot:focus-visible { outline: 2px solid var(--ink); }
+@media (max-width: 560px) {
+  .huge { padding: 16px 30px; font-size: 18px; }
+}

@@ -1,0 +1,6 @@
+.lens { display: block; padding-left: 34px; font-size: 11px; color: #8fa0bf; }
+.lens button { border: 0; background: none; color: #a8c7ff; font: inherit; padding: 2px 2px; cursor: pointer; }
+.lens button:hover { text-decoration: underline; }
+.current { display: block; background: #2e4a3a; }
+.sep { display: block; }
+.incoming { display: block; background: #2d3b5c; }

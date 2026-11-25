@@ -1,0 +1,15 @@
+.pipeStage { background: #23365c; border-color: var(--ink); border-style: solid; }
+.pipeWrap { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.source { align-self: flex-start; margin-top: 22px; font-size: 30px; filter: drop-shadow(0 0 8px #8db8ff); }
+.pipeGrid { display: grid; grid-template-columns: repeat(4, 72px); grid-template-rows: repeat(3, 72px); gap: 4px; padding: 6px; border: 3px solid #1d2f52; border-radius: 10px; background: #1d2f52; }
+.pipe { padding: 0; border: 0; border-radius: 6px; background: #33466e; cursor: pointer; overflow: hidden; }
+.pipe:hover { background: #415683; }
+.pipe[data-on='true'] { background: #1f4a8f; }
+.pipeSpin { display: block; width: 100%; height: 100%; }
+.pipeSpin svg { display: block; width: 100%; height: 100%; }
+.sink { align-self: flex-end; margin-bottom: 10px; }
+.lit { box-shadow: 0 4px 0 #1d2f52, 0 0 24px #8db8ff; }
+@media (max-width: 560px) {
+  .pipeGrid { grid-template-columns: repeat(4, 54px); grid-template-rows: repeat(3, 54px); }
+  .pipeWrap { flex-wrap: wrap; }
+}

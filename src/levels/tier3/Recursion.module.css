@@ -1,0 +1,6 @@
+.recursionStage { display: grid; place-items: center; }
+.frame { display: grid; gap: 8px; justify-items: center; padding: 10px 10px 12px; border: 2px solid var(--ink); border-radius: 12px; background: var(--paper); width: 100%; }
+.frame .frame { width: 92%; background: #fff; }
+.frame .frame .frame { background: var(--paper); }
+.frameLabel { font: 10px var(--mono); color: var(--muted); justify-self: start; }
+.frameAgree { min-height: 34px; padding: 6px 16px; font-size: 12px; }

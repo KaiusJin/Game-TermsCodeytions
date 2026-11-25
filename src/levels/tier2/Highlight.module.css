@@ -1,0 +1,6 @@
+.highlight { font: 15px/1.8 var(--serif); }
+.highlight p { margin: 0; }
+.gap { min-height: 80px; display: grid; place-items: center; }
+.hidden { color: #f7faff; cursor: text; font-weight: 700; padding: 6px; }
+.hidden::selection { background: var(--ink); color: var(--accent); }
+.hidden:focus-visible { color: var(--ink); background: var(--accent); outline: none; }

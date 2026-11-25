@@ -1,0 +1,12 @@
+.voteStage { display: grid; place-items: center; }
+.committee { display: grid; grid-template-columns: repeat(3, 84px); gap: 10px; perspective: 600px; }
+.member { position: relative; width: 84px; height: 84px; border: 2px solid var(--ink); border-radius: 14px; background: var(--accent); box-shadow: 0 4px 0 var(--ink); cursor: pointer; padding: 6px; }
+.member img { width: 100%; height: 100%; object-fit: contain; }
+.member[data-agree='false'] { background: #d3dcec; }
+.member[data-agree='false'] img { filter: grayscale(1) opacity(.6); transform: scaleX(-1); }
+.member span { position: absolute; top: -8px; right: -8px; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: var(--accent); font: 800 13px/24px sans-serif; }
+.member[data-agree='false'] span { background: var(--red); color: #fff; transform: scaleX(-1); }
+@media (max-width: 560px) {
+  .committee { grid-template-columns: repeat(3, 72px); }
+  .member { width: 72px; height: 72px; }
+}

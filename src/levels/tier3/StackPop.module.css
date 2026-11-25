@@ -1,0 +1,12 @@
+.stackStage { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+.stack { position: relative; display: grid; gap: 6px; padding: 26px 14px 14px; border: 2px solid var(--ink); border-top: 0; border-radius: 0 0 14px 14px; background: #fff; min-height: 250px; align-content: end; }
+.stackTop { position: absolute; top: 4px; left: 12px; font: 10px var(--mono); color: var(--muted); }
+.card { display: grid; place-items: center; min-height: 34px; border: 1.5px solid var(--ink); border-radius: 8px; background: var(--paper); font: 600 13px var(--mono); }
+.card[data-agree='true'] { border: 0; background: none; }
+.cardAgree { width: 100%; min-height: 38px; }
+.stackOps { display: grid; gap: 12px; }
+.stackOps button { font-family: var(--mono); }
+@media (max-width: 560px) {
+  .stackStage { grid-template-columns: 1fr; }
+  .stackOps { grid-auto-flow: column; }
+}

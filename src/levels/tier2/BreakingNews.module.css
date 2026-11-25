@@ -1,0 +1,12 @@
+.newsStage { padding: 0; display: grid; align-content: center; background: var(--ink); min-height: 220px; }
+.anchor { display: flex; align-items: center; gap: 10px; padding: 0 22px 14px; color: #fff; font: 800 20px var(--serif); }
+.anchor span { background: var(--red); color: #fff; font: 700 11px var(--mono); padding: 4px 8px; border-radius: 4px; animation: blink 1s steps(2) infinite; }
+.ticker { overflow: hidden; background: var(--accent); border-block: 3px solid #1d2f52; padding: 10px 0; }
+.tickerTrack { display: flex; gap: 26px; width: max-content; align-items: center; animation: ticker 4.5s linear infinite; }
+.ticker:hover .tickerTrack, .ticker:focus-within .tickerTrack, .ticker[data-paused='true'] .tickerTrack { animation-play-state: paused; }
+.headline { font: 800 15px var(--mono); white-space: nowrap; }
+.newsAgree, .newsNo { font: 800 15px var(--mono); padding: 6px 12px; border: 2px solid #1d2f52; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+.newsAgree { background: #fff; }
+.newsNo { background: #fff; }
+@keyframes blink { 50% { opacity: .4; } }
+@keyframes ticker { to { transform: translateX(-50%); } }

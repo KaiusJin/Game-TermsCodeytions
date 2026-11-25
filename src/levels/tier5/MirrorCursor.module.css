@@ -1,0 +1,6 @@
+.mirrorStage { padding: 0; }
+.mirrorArea { position: relative; height: 300px; cursor: none; background: linear-gradient(90deg, transparent calc(50% - 1px), #dce5f2 calc(50% - 1px), #dce5f2 calc(50% + 1px), transparent calc(50% + 1px)), linear-gradient(0deg, transparent calc(50% - 1px), #dce5f2 calc(50% - 1px), #dce5f2 calc(50% + 1px), transparent calc(50% + 1px)); }
+.mirrorArea:focus-visible { outline: 3px solid var(--accent-mid); outline-offset: -3px; }
+.axis { position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; margin: -5px; border-radius: 50%; background: var(--line-strong); }
+.fakeButton { position: absolute; padding: 0; min-height: 0; font-size: 13px; pointer-events: none; }
+.cursor { position: absolute; pointer-events: none; transform: translate(-2px, -2px); filter: drop-shadow(0 2px 0 #0003); }

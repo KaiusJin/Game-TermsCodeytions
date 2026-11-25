@@ -1,0 +1,3 @@
+.invisible { height: 280px; cursor: crosshair; }
+.emptyNote { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font: 11px var(--mono); color: #b9c7de; }
+.ghost { position: absolute; left: 68%; top: 66%; transition: opacity .08s; }

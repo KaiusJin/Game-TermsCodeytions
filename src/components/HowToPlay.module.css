@@ -1,0 +1,5 @@
+.instructions { padding-left: 20px; margin: 22px 0; }
+.instructions li { padding-left: 8px; margin-bottom: 18px; font-size: 14px; }
+.instructions li::marker { color: var(--blue); font: 700 14px var(--mono); }
+.instructions p { margin: 6px 0; font-size: 13px; }
+.dialogNote { border-top: 1px solid var(--line); padding-top: 18px; font-size: 13px; }

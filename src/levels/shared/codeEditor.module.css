@@ -1,0 +1,7 @@
+/* Fake code editor chrome shared by code-themed levels. */
+.editor { border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; background: #1a2440; color: #e6edf7; }
+.editorTab { display: flex; justify-content: space-between; padding: 8px 14px; background: #1d2f52; color: var(--accent); font: 11px var(--mono); }
+.editorTab em { color: #ff8a80; font-style: normal; }
+.editorTab .ok { color: #7ee2a8; }
+.code { margin: 0; padding: 14px 0; font: 13px/1.9 var(--mono); white-space: pre-wrap; overflow-x: auto; }
+.ln { display: inline-block; width: 34px; padding-right: 12px; text-align: right; color: #66789a; user-select: none; }

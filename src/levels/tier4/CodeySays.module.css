@@ -1,0 +1,9 @@
+.saysStage { display: grid; place-items: center; }
+.says { display: flex; align-items: center; gap: 16px; }
+.says img { width: 120px; height: auto; }
+.order { position: relative; min-width: 230px; padding: 16px 18px 20px; border: 2px solid var(--ink); border-radius: 16px 16px 16px 4px; background: #fff; box-shadow: 0 5px 0 var(--ink); font: 800 18px/1.3 var(--serif); }
+.order i { position: absolute; left: 12px; right: 12px; bottom: 7px; height: 4px; border-radius: 2px; background: var(--accent-mid); transform-origin: left; }
+@media (max-width: 560px) {
+  .says { flex-direction: column; }
+  .says img { width: 90px; }
+}

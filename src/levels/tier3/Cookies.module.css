@@ -1,0 +1,19 @@
+.cookieStage { display: grid; place-items: center; background: repeating-linear-gradient(45deg, #edf3fc 0 10px, #e5ecf8 10px 20px); }
+.cookieBanner { width: min(400px, 100%); display: grid; gap: 10px; padding: 22px; background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; box-shadow: 0 8px 0 var(--ink); }
+.cookieBanner h3 { margin: 0; font: 800 20px var(--serif); }
+.cookieBanner p { margin: 0; font-size: 13px; color: var(--muted); }
+.cookieIcon { font-size: 34px; }
+.acceptAll { min-height: 60px; font-size: 17px; }
+.manage { border: 0; background: none; font-size: 10px; color: #a7b6cf; cursor: pointer; text-decoration: underline; }
+.toggleRow { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13px; cursor: pointer; }
+.toggleRow input { position: absolute; right: 0; width: 42px; height: 24px; margin: 0; opacity: 0; cursor: pointer; }
+.toggleRow i { position: relative; width: 42px; height: 24px; border-radius: 12px; background: #cfd9ea; border: 2px solid var(--ink); transition: background .15s; pointer-events: none; }
+.toggleRow i::after { content: ''; position: absolute; left: 2px; top: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 1.5px solid var(--ink); transition: transform .15s; }
+.toggleRow input:checked + i { background: var(--accent); }
+.toggleRow input:checked + i::after { transform: translateX(18px); }
+.toggleRow input:focus-visible + i { outline: 3px solid var(--accent-mid); outline-offset: 2px; }
+.toggleRow[data-locked='true'] { opacity: .5; cursor: not-allowed; }
+.legit { max-height: 92px; overflow-y: auto; padding-right: 8px; border: 1px dashed var(--line-strong); border-radius: 8px; padding: 6px 10px; }
+.legit p { margin: 0 0 30px; color: #b9c7de; }
+.legit strong { display: block; font-size: 12px; margin: 8px 0 2px; }
+.cookieDone { display: grid; place-items: center; text-align: center; }

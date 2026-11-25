@@ -1,0 +1,3 @@
+.runStage { padding: 0; }
+.runArea { position: relative; height: 280px; }
+.runner { position: absolute; left: 0; top: 0; }

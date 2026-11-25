@@ -1,0 +1,4 @@
+.signLabel { display: block; font: 700 11px var(--mono); letter-spacing: 1.4px; text-transform: uppercase; color: var(--blue-text); margin-bottom: 8px; }
+.signInput { width: 100%; padding: 14px 16px; border: 0; border-bottom: 2px solid var(--ink); background: transparent; font: italic 600 28px var(--serif); color: var(--ink); direction: rtl; unicode-bidi: bidi-override; outline: none; }
+.signInput:focus { background: var(--wash); }
+.signPreview { font-size: 13px; color: var(--muted); }

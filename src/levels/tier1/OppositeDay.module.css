@@ -1,0 +1,5 @@
+.center { text-align: center; font-weight: 600; margin: 8px 0 0; }
+.opposite { text-align: center; }
+.calendar { width: 108px; margin: 0 auto 14px; border: 2px solid var(--ink); border-radius: 10px; overflow: hidden; background: var(--paper); box-shadow: 0 4px 0 var(--ink); transform: rotate(-3deg) scaleX(-1); }
+.calendar span { display: block; background: var(--ink); color: var(--accent); font: 700 10px var(--mono); padding: 4px; }
+.calendar strong { display: block; padding: 10px 4px; font: 800 17px/1.1 var(--serif); }

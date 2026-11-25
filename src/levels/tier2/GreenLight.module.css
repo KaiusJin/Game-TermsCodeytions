@@ -1,0 +1,10 @@
+.lightStage { display: flex; align-items: center; justify-content: center; gap: 40px; }
+.light { display: grid; gap: 10px; padding: 14px; background: var(--ink); border-radius: 18px; box-shadow: 0 6px 0 #1d2f52; }
+.light span { width: 46px; height: 46px; border-radius: 50%; background: #333; transition: background .1s, box-shadow .1s; }
+.light span[data-color='red'][data-on='true'] { background: #ff4b3e; box-shadow: 0 0 24px #ff4b3e; }
+.light span[data-color='yellow'][data-on='true'] { background: var(--accent); box-shadow: 0 0 24px var(--accent); }
+.light span[data-color='green'][data-on='true'] { background: #3ee07a; box-shadow: 0 0 24px #3ee07a; }
+@media (max-width: 520px) {
+  .lightStage { gap: 22px; }
+  .light span { width: 36px; height: 36px; }
+}

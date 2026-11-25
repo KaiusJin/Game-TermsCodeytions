@@ -1,0 +1,24 @@
+.vendStage { padding: 14px; background: #e6edf8; }
+.vending { display: grid; grid-template-columns: 1fr 160px; gap: 10px; max-width: 520px; margin: 0 auto; padding: 12px; border: 3px solid #1d2f52; border-radius: 14px; background: var(--ink); box-shadow: 0 8px 0 #1d2f52; }
+.vendGlass { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 8px; border-radius: 8px; background: linear-gradient(160deg, #ffffff, #dde7f5); position: relative; }
+.slotItem { display: grid; gap: 4px; justify-items: center; padding: 8px 2px 4px; border-bottom: 4px solid #8496b8; }
+.snack { display: grid; place-items: center; width: 100%; min-height: 40px; border: 2px solid #1d2f52; border-radius: 6px; background: #fff; font: 700 11px var(--mono); position: relative; z-index: 1; }
+.snack[data-agree='true'] { background: var(--accent); }
+.code { font: 9px var(--mono); color: var(--muted); }
+.vendTray { grid-column: 1 / -1; display: grid; place-items: center; min-height: 58px; margin-top: 6px; border: 2px solid #1d2f52; border-radius: 6px; background: #23365c; color: #8496b8; font: 10px var(--mono); }
+.vendPanel { display: grid; gap: 10px; align-content: start; }
+.lcd { display: grid; gap: 2px; padding: 8px; border-radius: 6px; background: #213b1f; color: #8dff7a; font: 11px var(--mono); border: 2px solid #1d2f52; min-height: 52px; }
+.lcd strong { font-size: 18px; letter-spacing: 3px; }
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.keypad button { height: 34px; border: 2px solid #1d2f52; border-radius: 6px; background: #e2e9f5; font: 700 13px var(--mono); cursor: pointer; box-shadow: 0 2px 0 #1d2f52; }
+.keypad button:active { transform: translateY(2px); box-shadow: none; }
+.keypad button[data-wide='true'] { background: var(--accent); }
+.keypad button:last-child { grid-column: span 2; }
+.coins { display: flex; gap: 6px; justify-content: center; }
+.coins button { width: 42px; height: 42px; border-radius: 50%; border: 2px solid #1d2f52; font: 800 11px var(--mono); cursor: pointer; box-shadow: 0 3px 0 #1d2f52; }
+.quarter { background: radial-gradient(circle at 35% 30%, #fff, #b5c0d4); }
+.loonie { background: radial-gradient(circle at 35% 30%, #cfe1ff, #2867d8); }
+.toonie { background: radial-gradient(circle at 50% 50%, #cfe1ff 0 40%, #b5c0d4 42%); }
+@media (max-width: 560px) {
+  .vending { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,12 @@
+.bilingual { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.bilingual > div { display: grid; gap: 12px; justify-items: center; align-content: start; padding: 6px 14px; text-align: center; }
+.bilingual > div:first-child { border-right: 2px solid var(--ink); }
+.bilingual p { margin: 0; font-weight: 600; min-height: 42px; }
+.lang { font: 700 10px var(--mono); letter-spacing: 1.5px; color: var(--paper); background: var(--ink); padding: 3px 8px; border-radius: 4px; }
+.pending { position: relative; display: grid; justify-items: center; gap: 4px; }
+.pending button { opacity: .55; }
+.pending span { font: 9px var(--mono); color: var(--red); transform: rotate(-4deg); border: 1px solid var(--red); padding: 1px 5px; border-radius: 3px; }
+@media (max-width: 560px) {
+  .bilingual { grid-template-columns: 1fr; }
+  .bilingual > div:first-child { border-right: 0; border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 12px; }
+}

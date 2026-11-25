@@ -1,0 +1,10 @@
+{
+  // Static site on Cloudflare Workers: serves the Vite build output, no Worker script needed.
+  // `name` must match the Worker/project name chosen in the Cloudflare dashboard.
+  "name": "csc-game",
+  "compatibility_date": "2025-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "single-page-application"
+  }
+}

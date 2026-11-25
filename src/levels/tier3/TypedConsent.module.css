@@ -1,0 +1,11 @@
+.typed { display: flex; gap: 10px; justify-content: center; }
+.typed span { display: grid; place-items: center; width: 54px; height: 64px; border: 2px solid var(--ink); border-radius: 10px; font: 800 30px var(--serif); color: #c9d6ea; background: #fff; transition: all .15s; }
+.typed span[data-on='true'] { background: var(--accent); color: var(--ink); box-shadow: 0 4px 0 var(--ink); transform: translateY(-3px); }
+.keys { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 22px; }
+.key { min-width: 42px; height: 42px; border: 1.5px solid var(--ink); border-radius: 7px; background: #fff; box-shadow: 0 3px 0 var(--ink); font: 700 14px var(--mono); cursor: pointer; }
+.key:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--ink); }
+.enter { padding: 0 14px; background: var(--ink); color: var(--accent); }
+.glow { box-shadow: 0 4px 0 var(--ink), 0 0 0 6px #fdd54f66; }
+@media (max-width: 560px) {
+  .typed span { width: 44px; height: 54px; font-size: 24px; }
+}

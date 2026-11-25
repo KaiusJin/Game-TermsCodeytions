@@ -1,0 +1,8 @@
+.legal { font: 15px/1.9 var(--serif); margin: 0; }
+.inlineWord { all: unset; cursor: text; }
+.inlineWord:focus-visible { outline: 2px solid var(--accent-mid); }
+.huge { font-size: 22px; padding: 18px 54px; letter-spacing: 3px; }
+.caption { text-align: center; font: 10px var(--mono); color: var(--muted); margin: 10px 0 0; }
+@media (max-width: 560px) {
+  .huge { padding: 16px 30px; font-size: 18px; }
+}

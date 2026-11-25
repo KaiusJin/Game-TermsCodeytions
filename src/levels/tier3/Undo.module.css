@@ -1,0 +1,15 @@
+.muted { color: var(--muted); font-size: 13px; }
+.undoStage { padding: 0; }
+.menubar { display: flex; gap: 2px; padding: 4px 8px; background: var(--ink); }
+.menuWrap { position: relative; }
+.menuWrap > button { border: 0; background: none; color: #e2e9f5; padding: 6px 12px; border-radius: 5px; font-size: 13px; cursor: pointer; }
+.menuWrap > button[aria-expanded='true'], .menuWrap > button:hover { background: var(--accent); color: var(--ink); }
+.menu { position: absolute; z-index: 5; top: 100%; left: 0; min-width: 200px; padding: 6px; background: var(--paper); border: 2px solid var(--ink); border-radius: 8px; box-shadow: 0 6px 0 var(--ink); display: grid; }
+.menu button { display: flex; justify-content: space-between; gap: 16px; border: 0; background: none; padding: 8px 10px; border-radius: 5px; font-size: 13px; text-align: left; cursor: pointer; }
+.menu button:hover:not(:disabled) { background: var(--wash); }
+.menu button:disabled { color: #b4c1d8; cursor: default; }
+.menu kbd { font: 11px var(--mono); color: var(--muted); }
+.undoBody { display: grid; place-items: center; gap: 8px; min-height: 220px; padding: 20px; text-align: center; }
+.undoBody p { margin: 0; }
+.undoBad { font: 800 26px var(--serif); color: var(--red); }
+.undoOk { font: 800 22px var(--serif); color: var(--green); }

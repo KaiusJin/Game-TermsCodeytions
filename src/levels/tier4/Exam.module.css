@@ -1,0 +1,8 @@
+.exam { max-width: 460px; margin: 0 auto; padding: 18px 22px; background: #fff; border: 1px solid var(--line-strong); box-shadow: 4px 4px 0 var(--line-strong); background-image: repeating-linear-gradient(transparent 0 31px, #e6eef9 31px 32px); }
+.examHead { display: flex; justify-content: space-between; font: 700 11px var(--mono); color: var(--muted); margin-bottom: 8px; }
+.question { font: 600 15px/1.6 var(--serif); }
+.option { position: relative; display: flex; align-items: center; gap: 12px; padding: 7px 4px; cursor: pointer; font: 15px var(--serif); }
+.option input { position: absolute; opacity: 0; }
+.bubbleOpt { display: grid; place-items: center; flex: none; width: 26px; height: 26px; border: 2px solid var(--ink); border-radius: 50%; font: 700 12px var(--mono); }
+.option[data-on='true'] .bubbleOpt { background: var(--ink); color: var(--accent); }
+.option input:focus-visible + .bubbleOpt { outline: 3px solid var(--accent-mid); outline-offset: 2px; }

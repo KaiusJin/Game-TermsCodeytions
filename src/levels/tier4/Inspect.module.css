@@ -1,0 +1,14 @@
+.inspectStage { padding: 0; }
+.inspectBar { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; background: #e6edf8; border-bottom: 1px solid var(--line-strong); font: 11px var(--mono); color: var(--muted); }
+.inspectBar button { border: 1.5px solid var(--ink); background: #fff; border-radius: 5px; font: 700 11px var(--mono); padding: 3px 7px; cursor: pointer; }
+.inspectBar button[aria-expanded='true'] { background: var(--ink); color: var(--accent); }
+.inspectBody { display: grid; place-items: center; min-height: 150px; }
+.outlined { outline: 2px dashed #4a8cff; outline-offset: 6px; }
+.devtools { overflow: hidden; background: #1a2440; color: #ddd; border-top: 2px solid var(--ink); }
+.devTabs { display: flex; gap: 16px; padding: 6px 12px; background: #1d2f52; font: 11px var(--mono); color: #888; }
+.devTabs b { color: var(--accent); }
+.dom { margin: 0; padding: 12px 14px; font: 12.5px/1.8 var(--mono); color: #9bb8ff; white-space: pre-wrap; }
+.attr { border: 0; background: none; padding: 0 2px; border-radius: 3px; font: inherit; color: #f2b66d; cursor: pointer; }
+.attr i { font-style: normal; color: #a5e4a0; }
+.attr:hover { background: #ffffff1a; text-decoration: line-through; }
+.attr[data-flash='true'] { background: #ffffff10; }

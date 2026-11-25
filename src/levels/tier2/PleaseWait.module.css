@@ -1,0 +1,7 @@
+.waitStage { display: grid; place-items: center; gap: 16px; }
+.wheel { width: 82px; height: 82px; border: 6px dashed var(--ink); border-radius: 50%; display: grid; place-items: center; font-size: 32px; }
+.wheel[data-spinning='true'] { animation: spin .8s linear infinite; }
+.wheel span { display: inline-block; }
+.processing { display: grid; gap: 0; }
+.processing small { font-weight: 500; font-size: 10px; color: var(--muted); }
+@keyframes spin { to { transform: rotate(360deg); } }

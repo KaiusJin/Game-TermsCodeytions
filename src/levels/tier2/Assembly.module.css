@@ -1,0 +1,9 @@
+.slots { display: flex; gap: 8px; justify-content: center; }
+.slot { width: 52px; height: 60px; border: 2px dashed var(--ink); border-radius: 10px; background: transparent; font: 800 28px var(--serif); cursor: pointer; }
+.slot[data-filled='true'] { border-style: solid; background: var(--accent); box-shadow: 0 4px 0 var(--ink); }
+.parts { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 24px; }
+.part { width: 46px; height: 46px; border: 2px solid var(--ink); border-radius: 8px; background: var(--paper); box-shadow: 0 3px 0 var(--ink); font: 800 22px var(--serif); cursor: pointer; }
+.part:disabled { opacity: .2; }
+@media (max-width: 520px) {
+  .slot { width: 44px; height: 52px; }
+}

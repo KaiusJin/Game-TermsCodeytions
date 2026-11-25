@@ -1,0 +1,32 @@
+.app { max-width: 1192px; padding: 0 40px; margin: 0 auto; min-height: 100dvh; display: flex; flex-direction: column; }
+.header { min-height: 92px; border-bottom: 2px solid var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 14px; border: 0; padding: 0; background: none; text-align: left; cursor: pointer; }
+.logoChip { display: grid; place-items: center; width: 74px; height: 44px; border-radius: 10px; background: #fff; border: 2px solid var(--ink); box-shadow: 0 3px 0 var(--ink); }
+.logoChip img { width: 54px; height: auto; }
+.club { display: grid; gap: 3px; }
+.club strong { font-size: 13px; font-weight: 800; }
+.club > span { font-size: 11px; color: var(--muted); }
+.header nav { display: flex; align-items: center; gap: 22px; }
+.navButton { border: 0; background: none; padding: 10px 0; cursor: pointer; font-size: 13px; font-weight: 600; }
+.navButton:hover { text-decoration: underline; text-decoration-color: var(--accent-mid); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.navOutline { display: flex; gap: 8px; align-items: center; border: 2px solid var(--ink); border-radius: 9px; background: var(--paper); padding: 9px 12px; font-size: 12px; font-weight: 700; cursor: pointer; box-shadow: 0 3px 0 var(--ink); }
+.navOutline:hover { background: var(--wash); }
+.navCount { background: var(--blue); color: #fff; font: 700 10px var(--mono); border-radius: 4px; padding: 3px 5px; margin-left: 2px; }
+.main { flex: 1; }
+.footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 70px; border-top: 2px solid var(--ink); color: var(--muted); font-size: 11px; }
+.footer > span { display: flex; gap: 8px; align-items: center; }
+.footerSpark { border: 0; background: none; padding: 0 2px; color: var(--blue); font-size: 20px; cursor: default; }
+
+.game { max-width: 1040px; margin: 26px auto 60px; }
+
+.overlay { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; background: #f3f7fdaa; backdrop-filter: blur(2px); }
+.overlay[data-failed='true'] { background: #fdeceb99; }
+.stamp { display: block; padding: .08em .3em; border: .07em solid currentColor; border-radius: .14em; color: var(--blue); background: #fff; font: 900 clamp(64px, 15vw, 150px)/1.1 var(--serif); letter-spacing: -.03em; text-transform: uppercase; transform: rotate(-10deg); box-shadow: 0 .06em 0 var(--blue), 0 20px 60px #2867d833; animation: stamp-in .28s cubic-bezier(.2, 1.6, .4, 1) both; }
+.overlay[data-failed='true'] .stamp { color: var(--red); background: #fff; font-size: clamp(42px, 11vw, 120px); box-shadow: 0 .06em 0 var(--red), 0 20px 60px #c8322b33; }
+@keyframes stamp-in { from { opacity: 0; transform: scale(1.8) rotate(-22deg); } to { opacity: 1; transform: scale(1) rotate(-10deg); } }
+
+.storageError { font-size: 12px; padding: 14px; background: var(--wash); border-radius: 8px; }
+
+@media (max-width: 800px) { .app { padding: 0 24px; } .header { min-height: 80px; } .header nav { gap: 14px; } }
+@media (max-width: 520px) { .app { padding: 0 16px; } .header { gap: 10px; min-height: 70px; } .logoChip { width: 58px; height: 38px; } .logoChip img { width: 42px; } .club strong { font-size: 11px; } .club > span { font-size: 9px; } .navButton { display: none; } .navOutline > svg { display: none; } .footer { flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 18px 0; } .game { margin-top: 16px; } }
+@media (max-width: 360px) { .club { display: none; } }

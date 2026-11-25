@@ -1,0 +1,18 @@
+.panel { position: fixed; right: 16px; bottom: 16px; z-index: 200; width: min(360px, calc(100vw - 32px)); max-height: min(70dvh, 560px); display: flex; flex-direction: column; border: 2px solid var(--ink); border-radius: 12px; background: #f4f8ff; box-shadow: 0 6px 0 var(--ink), 0 20px 50px #0003; font-size: 13px; overflow: hidden; }
+.head { display: flex; justify-content: space-between; align-items: center; padding: 8px 10px 8px 14px; background: var(--ink); color: var(--accent); font: 700 12px var(--mono); }
+.head small { font-weight: 400; opacity: .7; }
+.head button { width: 26px; height: 26px; border: 0; border-radius: 6px; background: #ffffff1c; color: var(--accent); font-size: 18px; cursor: pointer; }
+.current { display: grid; gap: 4px; padding: 12px 14px; border-bottom: 1px dashed var(--line-strong); }
+.current small { font: 10px var(--mono); color: var(--muted); }
+.current strong { font: 800 16px var(--serif); }
+.current p { margin: 0; line-height: 1.5; }
+.idle { margin: 0; padding: 12px 14px; color: var(--muted); }
+.toggle { border: 0; background: none; text-align: left; padding: 10px 14px; font: 600 12px var(--mono); cursor: pointer; }
+.toggle:hover { background: #dceaff; }
+.list { list-style: none; margin: 0; padding: 0 6px 8px; overflow-y: auto; }
+.list li[data-current='true'] button { background: var(--accent); }
+.list button { display: flex; gap: 10px; align-items: flex-start; width: 100%; padding: 7px 8px; border: 0; border-radius: 6px; background: none; text-align: left; cursor: pointer; }
+.list button:hover { background: #dceaff; }
+.list b { display: block; font-size: 12px; }
+.list em { display: block; font-style: normal; font-size: 11px; color: var(--muted); line-height: 1.4; }
+.tier { flex: none; font: 700 10px var(--mono); background: var(--ink); color: var(--accent); padding: 2px 5px; border-radius: 4px; margin-top: 1px; }

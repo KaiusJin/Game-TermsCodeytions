@@ -1,0 +1,8 @@
+.browserStage { padding: 14px; }
+.browser { border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; background: #fff; }
+.addressBar { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #e6edf8; border-bottom: 2px solid var(--ink); }
+.addressBar input { flex: 1; min-width: 0; padding: 6px 12px; border: 1.5px solid var(--line-strong); border-radius: 20px; background: #fff; font: 13px var(--mono); }
+.page { display: grid; justify-items: center; gap: 10px; padding: 26px 18px; min-height: 180px; text-align: center; }
+.page p { margin: 0; font: 600 16px var(--serif); }
+.paywall { color: var(--red); font-size: 13px !important; }
+.pager { display: flex; gap: 10px; }

@@ -1,0 +1,7 @@
+.dragStage { padding: 0; }
+.dragArea { position: relative; height: 260px; display: grid; place-items: center; }
+.under { position: absolute; }
+.cover { position: absolute; display: grid; gap: 4px; place-items: center; width: 240px; padding: 26px 18px; border: 2px solid var(--ink); border-radius: 14px; background: var(--paper); box-shadow: 0 6px 0 var(--ink), 0 18px 40px #0002; font: 800 22px var(--serif); cursor: grab; touch-action: none; }
+.cover:active { cursor: grabbing; }
+.cover small { font: 500 11px var(--mono); color: var(--muted); }
+.grip { position: absolute; left: 12px; top: 10px; font-size: 14px; color: var(--line-strong); letter-spacing: -2px; }

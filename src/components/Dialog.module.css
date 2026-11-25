@@ -1,0 +1,7 @@
+.dialog { width: min(600px, calc(100% - 32px)); max-height: 85dvh; padding: 0; border: 2px solid var(--ink); border-radius: 18px; color: var(--ink); background: var(--paper); box-shadow: 0 8px 0 var(--ink), 0 25px 100px #0003; }
+.dialog::backdrop { background: #15274d88; backdrop-filter: blur(6px); }
+.body { padding: 40px; }
+.body h2 { font: 800 30px/1.15 var(--serif); letter-spacing: -.5px; margin: 18px 0; max-width: 390px; }
+.body p { line-height: 1.7; color: var(--muted); }
+.close { position: absolute; top: 15px; right: 15px; display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--accent); cursor: pointer; }
+@media (max-width: 600px) { .body { padding: 32px 22px; } }

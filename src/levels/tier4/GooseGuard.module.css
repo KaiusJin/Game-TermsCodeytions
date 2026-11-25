@@ -1,0 +1,9 @@
+.gooseStage { padding: 0; background: linear-gradient(180deg, #dff0d0 0%, #c7e3b0 100%); }
+.gooseArea { position: relative; height: 300px; }
+.gooseAgree { position: absolute; transform: translate(-50%, -50%); }
+.gooseAgree:hover:not(:disabled), .gooseAgree:active:not(:disabled) { transform: translate(-50%, -50%); }
+.gooseAnchor { position: absolute; width: 0; height: 0; }
+.goose { position: absolute; left: -54px; top: -64px; width: 108px; height: 108px; padding: 0; border: 0; background: none; cursor: pointer; z-index: 2; filter: drop-shadow(0 6px 0 #0002); }
+.honk { position: absolute; top: -10px; right: -40px; padding: 3px 8px; background: #fff; border: 2px solid var(--ink); border-radius: 10px; font: 900 12px var(--mono); }
+.bread { position: absolute; right: 10%; top: 14%; font-size: 44px; cursor: grab; touch-action: none; user-select: none; z-index: 3; filter: drop-shadow(0 4px 0 #0003); }
+.bread:active { cursor: grabbing; }
