@@ -1,7 +1,5 @@
 .hero { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 50px; padding: 77px 0 80px; min-height: 660px; }
 .hero > * { min-width: 0; }
-.kicker { display: flex; align-items: center; gap: 9px; font: 10px var(--mono); letter-spacing: 1.6px; color: var(--muted); }
-.kicker > span { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-mid); border: 2px solid var(--ink); }
 .intro h1 { font: 800 clamp(60px, 6.4vw, 88px)/1.02 var(--serif); letter-spacing: -3px; margin: 26px 0; }
 .amp { font-family: Georgia, serif; font-weight: 400; font-style: italic; }
 .blue { color: var(--ink); background: linear-gradient(transparent 58%, var(--accent) 58% 92%, transparent 92%); padding: 0 .06em; }
@@ -12,7 +10,6 @@
 .how { display: flex; align-items: center; gap: 14px; border: 0; background: none; padding: 14px 0; font-size: 13px; font-weight: 600; cursor: pointer; }
 .how:hover { color: var(--blue-text); }
 .how span { font-size: 20px; }
-.note { display: flex; gap: 6px; align-items: center; margin-top: 19px; color: var(--muted); font-size: 11px; }
 .illustration { position: relative; min-height: 510px; }
 .orbit { position: absolute; width: 470px; height: 470px; max-width: 110%; border: 1px dashed var(--line-strong); border-radius: 50%; top: 25px; left: -10px; }
 .tinyStar { position: absolute; color: var(--blue); left: -24px; top: 40px; transform: rotate(10deg); }
@@ -39,12 +36,7 @@
 .codey img { width: 100%; height: auto; filter: drop-shadow(0 10px 0 #0002); }
 .codeyLabel { position: absolute; bottom: -8px; right: -4px; color: var(--muted); font: 10px var(--mono); transform: rotate(-3deg); }
 .codeyLabel span { font-size: 26px; margin-left: 4px; }
-.steps { display: grid; grid-template-columns: repeat(3, 1fr); padding: 32px 0 39px; border-top: 2px solid var(--ink); gap: 30px; }
-.step { display: flex; gap: 17px; align-items: flex-start; }
-.stepNumber { display: grid; place-items: center; width: 35px; height: 35px; flex-shrink: 0; border: 2px solid var(--ink); box-shadow: 0 2px 0 var(--ink); background: var(--paper); border-radius: 9px; color: var(--blue); font: 11px var(--mono); }
-.step h2 { font-size: 13px; margin: 2px 0 8px; font-weight: 600; }
-.step p { font-size: 11px; color: var(--muted); margin: 0; line-height: 1.6; }
 @media (max-width: 1050px) { .hero { gap: 15px; } .intro h1 { font-size: 67px; } .illustration { transform: scale(.88); transform-origin: center; margin-left: -25px; } .sticker { right: -25px; } }
-@media (max-width: 800px) { .hero { grid-template-columns: minmax(0, 1fr); padding: 50px 0 25px; gap: 25px; } .intro { text-align: center; } .intro h1 { font-size: clamp(56px, 11vw, 80px); letter-spacing: -3.5px; } .kicker, .actions, .note { justify-content: center; } .description { margin-inline: auto; } .illustration { width: 460px; max-width: 100%; margin: 0 auto; transform: none; } .codey { right: -8px; } .sticker { right: 0; } .steps { gap: 18px; } .step { gap: 10px; } }
-@media (max-width: 520px) { .hero { padding-top: 37px; gap: 0; } .kicker { font-size: 8px; letter-spacing: 1px; } .tagline { font-size: 19px; } .description { font-size: 14px; } .actions { gap: 18px; } .illustration { width: 350px; min-height: 455px; } .paper { left: 12px; top: 45px; width: 290px; } .paperBack { left: 10px; top: 59px; width: 290px; height: 370px; } .paperContent { padding: 22px; } .paperContent h2 { font-size: 21px; } .paperLabel { font-size: 6px; } .codey { width: 140px; right: -9px; bottom: 5px; } .codeyLabel { display: none; } .sticker { top: 35px; right: 0; font-size: 10px; padding: 10px; z-index: 1; } .orbit { width: 320px; height: 320px; max-width: 100%; left: 0; top: 80px; } .tinyStar { left: -5px; top: 25px; } .steps { grid-template-columns: 1fr; gap: 24px; margin-top: 25px; } .step { gap: 16px; } .step h2 { font-size: 14px; } .step p { font-size: 12px; } }
-@media (max-width: 360px) { .paper { width: 260px; left: 5px; } .paperBack { width: 255px; left: 4px; } .codey { width: 118px; right: -4px; } .intro h1 { font-size: 51px; } .note { font-size: 10px; } }
+@media (max-width: 800px) { .hero { grid-template-columns: minmax(0, 1fr); padding: 50px 0 25px; gap: 25px; } .intro { text-align: center; } .intro h1 { font-size: clamp(56px, 11vw, 80px); letter-spacing: -3.5px; } .description { margin-inline: auto; } .illustration { width: 460px; max-width: 100%; margin: 0 auto; transform: none; } .codey { right: -8px; } .sticker { right: 0; } }
+@media (max-width: 520px) { .hero { padding-top: 37px; gap: 0; } .tagline { font-size: 19px; } .description { font-size: 14px; } .actions { gap: 18px; } .illustration { width: 350px; min-height: 455px; } .paper { left: 12px; top: 45px; width: 290px; } .paperBack { left: 10px; top: 59px; width: 290px; height: 370px; } .paperContent { padding: 22px; } .paperContent h2 { font-size: 21px; } .paperLabel { font-size: 6px; } .codey { width: 140px; right: -9px; bottom: 5px; } .codeyLabel { display: none; } .sticker { top: 35px; right: 0; font-size: 10px; padding: 10px; z-index: 1; } .orbit { width: 320px; height: 320px; max-width: 100%; left: 0; top: 80px; } .tinyStar { left: -5px; top: 25px; } }
+@media (max-width: 360px) { .paper { width: 260px; left: 5px; } .paperBack { width: 255px; left: 4px; } .codey { width: 118px; right: -4px; } .intro h1 { font-size: 51px; } }

@@ -4,12 +4,10 @@ export const copy = {
   title: 'Terms & Codeytions',
   nav: { how: 'How to play', levels: 'Agreements', home: 'Back to home' },
   hero: {
-    eyebrow: 'A SMALL GAME WITH SOME FINE PRINT',
     tagline: 'All you have to do is agree.',
     description: 'A perfectly ordinary agreement. A slightly uncooperative button. Read between the lines, outsmart the interface, and see what Codey is up to.',
     start: 'Let’s agree',
     replay: 'Play again',
-    note: 'No sign-up. No actual legal obligations.',
     sticker: 'Seems simple, right?',
     label: 'YOUR FRIENDLY NEIGHBOURHOOD AGREEMENT',
     documentTitle: 'Terms & Codeytions',

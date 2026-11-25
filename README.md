@@ -1,45 +1,53 @@
 # Terms & Codeytions
 
-为 Waterloo CS Club 制作的轻量浏览器解谜游戏，使用 React、TypeScript、Vite 和 Framer Motion。
+A browser puzzle game for the University of Waterloo Computer Science Club. Every screen is an agreement, and every agreement hides a different way to click **Agree**.
 
-## 运行
+- 50 agreements across five difficulty tiers; each run draws 15 at random, easiest first.
+- Clues live in the fine print, with two levels of optional hints per agreement.
+- Timed attempts, Codey reactions, synthesized stamp sounds, and a shareable end-of-run result.
+- Built with React, TypeScript, Vite and Framer Motion. Fully static, with no backend.
 
-使用 Node.js 22.12+（或兼容的较新版本）：
+## Getting started
+
+Requires Node.js 22.12 or newer.
 
 ```sh
 npm install
 npm run dev
 ```
 
-## 当前完成
+## Scripts
 
-- 蓝白色首页、游戏界面、成功反馈与完成页。
-- 50 关关卡池，每次随机抽取 15 关，难度递增。
-- 使用现有 Codey 插画和 CSC 标志。
-- 每关有两级提示、重试和本地收集记录；完成页显示用时、失败次数，并可复制分享结果。
-- Codey 会对 Agree/Disagree 做出反应；印章音效由 Web Audio 合成，可在顶栏关闭。
-- 隐藏答案面板（测试用）：在页面空白处键入 `codey`，或快速连点页脚 ✳ 五次。
-- 支持窄屏、键盘操作和减少动态效果设置。
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the dev server |
+| `npm run typecheck` | Type-check the project |
+| `npm run lint` | Run ESLint |
+| `npm run test` | Run unit tests (Vitest) |
+| `npm run test:e2e` | Solve all 50 agreements in a browser (Playwright, against the production build) |
+| `npm run build` | Build the static site into `dist/` |
+| `npm run preview` | Serve the production build locally |
 
-## 检查与构建
+Before the first e2e run, install the browser with `npx playwright install chromium`.
 
-```sh
-npm run typecheck
-npm run lint
-npm run test
-npm run build
-npm run test:e2e   # Playwright：逐关自动通关 50 关（首次需 npx playwright install chromium）
-npm run preview
-```
+## Playtesting
 
-构建输出在 `dist/`，可部署到静态托管服务。本次未部署。
+A hidden answer key shows the solution to the current agreement and lets you jump to any of the 50. To toggle it, type `codey` anywhere outside a text field, or click the ✳ in the footer five times quickly.
 
-## 文件
+## Deployment
 
-- `src/content/en.ts`：界面文案；`src/content/levels.ts`：50 关的条款、提示与答案。
-- `src/levels/tierN/`：每关一个组件与样式；`src/levels/shared/`：关卡共用部件。
-- `src/game/`：流程、随机抽关、存档与关卡注册表。
-- `src/components/`：公共界面。
-- `public/assets/README.md`：素材来源。
+`wrangler.jsonc` deploys `dist/` as a static site on Cloudflare Workers. Build with `npm run build`, then deploy with `npx wrangler deploy`.
 
-项目约定见 [Agent.md](Agent.md)，设计见 [架构文档](docs/architecture.md)。
+## Project layout
+
+| Path | Contents |
+| --- | --- |
+| `src/content/levels.ts` | Clauses, hints, answers, tier and time limit for every agreement |
+| `src/content/en.ts` | Interface copy |
+| `src/levels/tierN/` | One component and stylesheet per agreement |
+| `src/levels/shared/` | Controls, illustrations and styles shared by several agreements |
+| `src/game/` | Game flow, run selection, scoring and the level registry |
+| `src/components/` | Page-level and shared interface components |
+| `e2e/` | Playwright solve script for each agreement |
+
+See [docs/architecture.md](docs/architecture.md) for how the pieces fit together, [Agent.md](Agent.md) for contribution conventions, and [docs/assets.md](docs/assets.md) for artwork credits.

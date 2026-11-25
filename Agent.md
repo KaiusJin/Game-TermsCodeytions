@@ -1,103 +1,56 @@
-# Terms & Codeytions：开发协作规范
+# Contribution guide
 
-## 1. 项目目标
+Conventions for anyone, human or agent, working on Terms & Codeytions. See [docs/architecture.md](docs/architecture.md) for the structure.
 
-为滑铁卢大学 Computer Science Club（CSC）制作浏览器解谜游戏 **Terms & Codeytions**
+## Goal
 
-玩家阅读一系列幽默的协议条款，通过观察、试验和操作界面，找到点击 **Agree** 的方法。玩法灵感来自日本的 Agreee游戏；本项目自行设计关卡、文案和视觉表现。
+A browser puzzle game for the UWaterloo Computer Science Club, inspired by "click Agree" puzzle games. Players read humorous agreements and work out how to click **Agree**. Rules are easy to grasp, the interface surprises, and every solution is clued, repeatable and finishable. Difficulty comes from understanding the interaction, not from precise timing or long waits.
 
-核心体验：规则容易理解，界面会制造意外，但解法始终有线索、可重复、可完成。难度来自理解交互，而不是精确操作或漫长等待。
+The interface is in English and all copy lives in `src/content/`.
 
-## 2. 文档与工作范围
+## Code style
 
-- 本文件定义开发约定；[架构文档](docs/architecture.md)说明整体结构、模块职责和视觉方向。
-- 关卡池共 50 关（5 个难度档），每次开始随机抽取 15 关并按难度排序；关卡文案集中在 `src/content/levels.ts`。
-- 游戏代码放在本项目 `Game-TermsCodeytions` 内；相邻的 `../CSC/www-new` 仅作为素材与品牌信息来源。
-- 默认产品界面使用英文，适合 Waterloo CSC 受众；开发文档使用中文。文案集中保存，便于以后增加中文。
-- 遇到未明确的小型实现选择，优先采用最简单、可维护、符合本文档的方案。
+- React function components with strict TypeScript. Avoid `any`, duplicated state and needless type assertions.
+- PascalCase for components and types, camelCase for values, stable kebab-case for level ids.
+- CSS Modules for component styles. Framer Motion for motion, plain CSS for simple hover and colour changes.
+- `useReducer` for game flow and `useState` inside levels. No Redux, routers, drag libraries or UI kits.
+- Do not mutate the DOM to hold game state. Refs are fine for measuring, focus and pointer capture.
+- Clean up every timer, listener and animation subscription. Strict Mode must never advance a level twice.
+- Comments explain puzzle rules, edge cases and non-obvious decisions, not what the code does.
+- Extract a hook or helper only once something is genuinely reused.
 
-## 3. 技术与代码风格
+## Agreement rules
 
-| 项目 | 约定 |
-| --- | --- |
-| 应用 | React + TypeScript，使用 Vite 构建 |
-| 页面 | 语义化 HTML、普通 CSS；组件样式采用 CSS Modules |
-| 动画 | Framer Motion；简单悬停与颜色变化交给 CSS |
-| 状态 | React `useReducer` 管理流程，关卡内部使用 `useState` |
-| 数据 | 静态关卡注册表，`localStorage` 保存最小进度 |
-| 部署形态 | 静态网站，无后端、账号、排行榜或数据库 |
+1. Every agreement has clauses, an initial state, a clue, an unlock condition, a final Agree action, reset behaviour and a keyboard path.
+2. Meeting the condition is not enough: the player still activates Agree.
+3. Success fires once and shows the Agree stamp. Failure shows the Disagree stamp and resets only that agreement.
+4. Agree may move, hide or be covered, but it never leaves the play area for good or becomes unsolvable.
+5. Never depend on reloading, real dev tools, browser permissions or system settings.
+6. Write clauses as 2–3 legal-style terms with the clue hidden in the wording. State a rule outright only when the rule is the puzzle.
+7. Hints live behind "Need a little nudge": a subtle first hint, then an explicit second one. Feedback comes from control states and stamps, never from status text under the level.
+8. Attempts are timed: 30 seconds by default, or longer via `seconds` in the metadata.
+9. Decorative motion never decides the outcome. Every agreement is completable with reduced motion.
 
-代码要求：
+## Visuals and assets
 
-- 使用函数组件和严格 TypeScript 类型，避免 `any`、重复状态和无必要的类型断言。
-- 组件、类型使用 PascalCase；变量和函数使用 camelCase；关卡 ID 使用稳定的 kebab-case。
-- 每个关卡独立实现自己的交互，不在主组件中堆积按关卡编号分支的逻辑。
-- 先写直接、易读的实现；只有出现真实复用时才抽取 hook 或工具函数。
-- 不引入 Redux、通用规则引擎、拖拽框架、路由库或大型 UI 库来解决当前的小规模需求。
-- 不直接修改 DOM 来维护游戏状态；测量尺寸、聚焦和 Pointer Capture 等浏览器交互可以使用 ref。
-- 不以注释复述代码；只解释解谜规则、边界处理和不直观的设计原因。
-- 定时器、事件监听和动画订阅必须清理；React 严格模式下不得重复推进关卡。
+- CSC blue and white: white paper, navy text, blue primary buttons, light-blue accents.
+- Keep Codey and the CSC logo in their original shapes, proportions and colours. Codey uses they/them.
+- Copy only the assets you use into `public/assets/` and record their source in `docs/assets.md`.
+- Decorative images get an empty `alt`. Interactive images sit inside buttons with an accessible name.
 
-## 4. 关卡开发规则
+## Verification
 
-每个关卡必须明确：展示条款、初始状态、交互线索、解锁条件、最终 Agree 操作、重置行为和替代输入方式。
+Run the checks relevant to a change:
 
-1. 玩家满足关卡条件后，仍需主动点击或用键盘激活 Agree 才能过关。
-2. 一次成功只触发一次流程转换；页面中央显示大号 Agree 印章，短暂停留后自动进入下一关；仅末关结束后进入完成页。
-3. 失败时中央显示红色 Disagree 印章，短暂停留后恢复本关初始状态；手动重试直接重置本关，不退回第一关；切换关卡销毁旧关卡状态与副作用。
-4. Agree 可以移动、暂时消失或被遮挡，但不能永久离开操作区域或产生无解状态。
-5. 不依赖刷新页面、开发者工具、浏览器权限、真实系统设置或真实协议同意。
-6. 鼠标、触屏和键盘都应具备可完成的路径；替代操作保留同样的解谜条件。
-7. 条款以协议口吻写 2–3 条，线索藏在措辞里；只有规则本身就是谜题时才明写规则。操作说明与解谜提示统一放入 Need a little nudge，分为含蓄的轻提示与明确提示，由玩家主动展开；不在关卡底部显示交互触发的提示或状态文案，反馈使用控件状态及 Agree／Disagree 印章；每次关卡尝试有倒计时（默认 30 秒，可在关卡元数据中用 `seconds` 单独设置），到时仍未 Agree 即失败；重试及进入下一关重新计时。
-8. 装饰动画不决定胜负；减少动态效果时仍能完成相同关卡。
+```sh
+npm run typecheck && npm run lint && npm run test && npm run build
+npm run test:e2e   # when an agreement's behaviour changes
+```
 
-## 5. 视觉与素材
+Before shipping, every agreement must be solvable and retryable, progress must survive a reload, the game must stay playable when storage is blocked, and the production build must load with no console errors. Report what changed, what was verified and what was not.
 
-采用简洁的协议表单：白色纸面、深蓝文字、蓝色主按钮及浅蓝点缀，搭配 CSC 标志、Codey 插画和少量幽默反馈。
+## Git
 
-- 保留 Codey 和 CSC 标志原有造型、比例与颜色，不批量替换 SVG 内部填色。
-- Codey 是友好的柴犬吉祥物；英文涉及代词时使用 `they/them`，与本地 CSC 介绍保持一致。
-- 优先使用已有 SVG，不用商品照片代替界面插画。
-- 只复制实际使用的素材到 `public/assets/`，保留源文件名，并在 `public/assets/README.md` 记录原始路径及用途。
-- 素材清单见架构文档；构建后的游戏不能依赖项目外的 `../CSC` 路径。
-- 装饰图使用空 `alt`；承担交互的图片放在有可访问名称的按钮里。
-
-## 6. 实施顺序
-
-1. 建立 Vite、React、TypeScript 基础工程及设计变量。
-2. 实现首页、协议卡片、流程状态、第一关和完成页，打通完整体验。
-3. 逐步增加关卡，每完成一关验证其重试和替代输入。
-4. 增加提示、进度保存、继续游戏与重新开始。
-5. 完成窄屏布局、减少动态效果、键盘操作和构建检查。
-6. 首发体验稳定后再考虑扩展关卡、音效及其他功能。
-
-## 7. 验证与完成标准
-
-默认不使用浏览器控制；验证保持精简，只做与当前改动直接相关的必要检查，不反复或扩大测试范围。
-
-项目已配置以下开发与检查脚本：
-
-| 命令 | 用途 |
-| --- | --- |
-| `npm run dev` | 本地开发 |
-| `npm run typecheck` | TypeScript 类型检查 |
-| `npm run lint` | ESLint 检查 |
-| `npm run test` | 运行关键逻辑测试，使用非监听模式 |
-| `npm run test:e2e` | Playwright 逐关通关测试（基于生产构建，50 关） |
-| `npm run build` | 生成静态产物 |
-| `npm run preview` | 检查生产构建 |
-
-重点测试流程转换、重复成功回调、存档异常，以及容易发生错误的交互边界。纯文案、简单样式或静态素材调整不必新增测试。
-
-交付前确认所有首发关卡可通关、可重试，刷新可恢复有效进度，存储不可用时仍能游玩；键盘和触屏替代操作有效；生产构建没有素材缺失或控制台错误。
-
-汇报时说明实际修改、已执行验证和未完成事项，不把设计计划描述成已经实现。
-
-## 8. Git 与 GitHub 授权
-
-- 可在任务相关范围内检查仓库、分支、差异、历史，执行 clone、fetch、ls-remote；仍须遵守环境权限。
-- 未经用户针对当前操作与范围明确授权，不得创建或修改提交、推送任何引用、创建 PR 或修改已有 PR。
-- 提交、推送、PR 是分别授权的操作；实现、修复或测试请求不等于授权这些操作。
-- merge、rebase、cherry-pick、revert 等间接产生或改写提交的操作同样需要授权。获取远端更新使用 fetch，不使用 pull。
-- 缺少授权时完成已授权的本地修改与验证，然后说明仓库、分支及拟执行动作并询问用户。
-- 不通过脚本、API、插件或其他机制绕过授权，也不把自动审批视为用户授权。
+- Reading history, diffs and remotes is fine.
+- Committing, pushing and opening or editing pull requests each need the maintainer's explicit approval for that action. A request to implement or fix something is not approval to commit.
+- Use `fetch`, not `pull`. Merges, rebases and other history rewrites also need approval.
