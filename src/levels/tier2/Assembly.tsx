@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Row, Stage } from '../shared/controls';
 import s from './Assembly.module.css';
@@ -19,7 +19,7 @@ export function Assembly({ onSolved }: LevelProps) {
       </div>
       <div className={s.parts}>
         {parts.map((letter, i) => (
-          <motion.button key={i} layout type="button" className={s.part} disabled={slots.includes(i) || slots.length >= 5} onClick={() => setSlots([...slots, i])} style={{ rotate: (i % 3 - 1) * 6 }}>{letter}</motion.button>
+          <m.button key={i} layout type="button" className={s.part} disabled={slots.includes(i) || slots.length >= 5} onClick={() => setSlots([...slots, i])} style={{ rotate: (i % 3 - 1) * 6 }}>{letter}</m.button>
         ))}
       </div>
       <Row><Agree disabled={!done} onClick={onSolved}>{done ? 'Agree ✓' : word.length === 5 ? `${word}?` : 'A _ _ _ _'}</Agree></Row>

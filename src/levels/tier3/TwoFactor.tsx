@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './TwoFactor.module.css';
@@ -23,10 +23,10 @@ export function TwoFactor({ onSolved }: LevelProps) {
         <span className={s.notch} />
         <AnimatePresence>
           {peek ? (
-            <motion.span className={s.notif} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }}>
+            <m.span className={s.notif} initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ opacity: 0 }}>
               <b>CSC Auth</b>Your code is <strong>314159</strong>
-            </motion.span>
-          ) : <motion.span className={s.buzz} animate={{ rotate: [0, -6, 6, -6, 0] }} transition={{ repeat: Infinity, repeatDelay: 1.2, duration: .35 }}>📳</motion.span>}
+            </m.span>
+          ) : <m.span className={s.buzz} animate={{ rotate: [0, -6, 6, -6, 0] }} transition={{ repeat: Infinity, repeatDelay: 1.2, duration: .35 }}>📳</m.span>}
         </AnimatePresence>
       </button>
     </Stage>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './Inspect.module.css';
@@ -19,7 +19,7 @@ export function Inspect({ onSolved }: LevelProps) {
       </div>
       <AnimatePresence>
         {open && (
-          <motion.div className={s.devtools} initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }}>
+          <m.div className={s.devtools} initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }}>
             <div className={s.devTabs}><b>Elements</b><span>Console</span><span>Sources</span></div>
             <pre className={s.dom}>
               {'▾ <div class="signoff">\n    <button '}
@@ -28,7 +28,7 @@ export function Inspect({ onSolved }: LevelProps) {
               <button type="button" className={s.attr} data-flash={flash === 'type'} onClick={() => setFlash('type')}>type=<i>"button"</i></button>
               {'>Agree</button>\n  </div>'}
             </pre>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </Stage>

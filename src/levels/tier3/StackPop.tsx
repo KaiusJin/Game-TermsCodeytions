@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './StackPop.module.css';
@@ -20,11 +20,11 @@ export function StackPop({ onSolved, onFailed }: LevelProps) {
         <span className={s.stackTop}>top ↓</span>
         <AnimatePresence initial={false}>
           {stack.map((item, i) => (
-            <motion.div key={item.id} layout className={s.card} data-agree={item.label === 'Agree'} initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ x: 200, rotate: 12, opacity: 0 }}>
+            <m.div key={item.id} layout className={s.card} data-agree={item.label === 'Agree'} initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ x: 200, rotate: 12, opacity: 0 }}>
               {item.label === 'Agree'
                 ? <Agree disabled={i !== 0} onClick={onSolved} className={s.cardAgree} />
                 : <span>{item.label}</span>}
-            </motion.div>
+            </m.div>
           ))}
         </AnimatePresence>
       </div>

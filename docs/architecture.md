@@ -23,6 +23,8 @@
 src/
 ├── App.tsx              # 页面切换、计时与流程编排
 ├── assets.ts            # public/assets 路径工具
+├── motionFeatures.ts    # Framer Motion 动画特性，按需异步加载
+├── sound/               # Web Audio 合成音效与开关设置
 ├── components/          # 页面级与公共组件（协议框、工具栏、完成页、对话框内容）
 │   └── answerKey/       # 隐藏答案面板及其触发 hook（测试用）
 ├── content/
@@ -32,16 +34,20 @@ src/
 │   ├── types.ts         # 关卡类型
 │   ├── state.ts         # 流程 reducer 与存档（只依赖关卡元数据）
 │   ├── run.ts           # 随机抽关
-│   └── levels.ts        # 关卡注册表：元数据 + 组件
+│   ├── share.ts         # 结算用时与分享文本
+│   └── levels.ts        # 关卡注册表：元数据 + 按需加载的组件
 ├── levels/
 │   ├── shared/          # 关卡共用的按钮、舞台、插画与代码编辑器样式
 │   └── tier1/ … tier5/  # 每关一个组件 + 同名样式文件
 └── styles/global.css    # 主题变量与全局样式
 
 public/assets/           # Codey 插画与 CSC 标志
+e2e/levels.spec.ts       # Playwright：每关一个通关脚本
 ```
 
-新增关卡：在 `content/levels.ts` 添加元数据，在对应 `levels/tierN/` 新建组件与样式，再在 `game/levels.ts` 注册。
+新增关卡：在 `content/levels.ts` 添加元数据，在对应 `levels/tierN/` 新建组件与样式，再在 `game/levels.ts` 注册，并在 `e2e/levels.spec.ts` 补一个通关脚本（类型检查会提醒缺失）。
+
+每个关卡是独立的代码块，开始一局时预加载这一局的 15 关；首屏只加载外壳。
 
 ## 4. 模块职责
 
@@ -50,7 +56,7 @@ public/assets/           # Codey 插画与 CSC 标志
 - **公共组件**：复用协议卡片、提示区域和 Codey 展示等基础界面。
 - **文案与素材**：集中维护内容，避免分散在各处重复定义。
 
-整体流程为：首页 → 逐关解谜 → Agree 印章 → 自动进入下一关 → 全部结束后显示完成页。每次开始从 50 关中按难度档随机抽取 15 关；每关限时默认 20 秒（个别关卡更长），操作失败或超时显示红色 Disagree 印章，短暂停留后重置本关并重新计时。关卡内部交互与整体游戏流程分开管理。
+整体流程为：首页 → 逐关解谜 → Agree 印章 → 自动进入下一关 → 全部结束后显示完成页。每次开始从 50 关中按难度档随机抽取 15 关；每关限时默认 30 秒（个别关卡更长），操作失败或超时显示红色 Disagree 印章，短暂停留后重置本关并重新计时。关卡内部交互与整体游戏流程分开管理。
 
 ## 5. 视觉与素材
 

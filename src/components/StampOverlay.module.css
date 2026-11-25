@@ -1,0 +1,10 @@
+.overlay { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px; background: #f3f7fdaa; backdrop-filter: blur(2px); }
+.overlay[data-failed='true'] { background: #fdeceb99; }
+.stamp { display: block; padding: .08em .3em; border: .07em solid currentColor; border-radius: .14em; color: var(--blue); background: #fff; font: 900 clamp(64px, 15vw, 150px)/1.1 var(--serif); letter-spacing: -.03em; text-transform: uppercase; transform: rotate(-10deg); box-shadow: 0 .06em 0 var(--blue), 0 20px 60px #2867d833; animation: stamp-in .28s cubic-bezier(.2, 1.6, .4, 1) both; }
+.overlay[data-failed='true'] .stamp { color: var(--red); background: #fff; font-size: clamp(42px, 11vw, 120px); box-shadow: 0 .06em 0 var(--red), 0 20px 60px #c8322b33; }
+@keyframes stamp-in { from { opacity: 0; transform: scale(1.8) rotate(-22deg); } to { opacity: 1; transform: scale(1) rotate(-10deg); } }
+.content { display: grid; justify-items: center; gap: 28px; }
+.reaction { display: flex; align-items: center; gap: 14px; max-width: min(460px, 92vw); padding: 12px 18px 12px 12px; border: 2px solid var(--ink); border-radius: 18px; background: var(--paper); box-shadow: 0 6px 0 var(--ink); }
+.reaction p { margin: 0; font: italic 600 17px/1.4 var(--serif); }
+.codey { flex: none; width: 76px; height: auto; }
+.overlay[data-failed='true'] .codey { width: 92px; }

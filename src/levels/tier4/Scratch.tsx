@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Disagree, Stage } from '../shared/controls';
 import s from './Scratch.module.css';
@@ -41,7 +41,7 @@ function ScratchPanel({ prize, onPick }: { prize: 'Agree' | 'Disagree'; onPick: 
   return (
     <div className={s.scratchPanel}>
       {prize === 'Agree' ? <Agree onClick={onPick} tabIndex={revealed ? 0 : -1} /> : <Disagree onClick={onPick} tabIndex={revealed ? 0 : -1} />}
-      <motion.canvas ref={canvas} className={s.scratchCanvas} animate={{ opacity: revealed ? 0 : 1 }} style={{ pointerEvents: revealed ? 'none' : 'auto' }}
+      <m.canvas ref={canvas} className={s.scratchCanvas} animate={{ opacity: revealed ? 0 : 1 }} style={{ pointerEvents: revealed ? 'none' : 'auto' }}
         tabIndex={revealed ? -1 : 0} role="button" aria-label="Scratch panel (Enter to scratch)"
         onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setRevealed(true); } }}
         onPointerDown={e => { down.current = true; e.currentTarget.setPointerCapture(e.pointerId); scratch(e); }}

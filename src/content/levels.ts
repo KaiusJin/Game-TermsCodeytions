@@ -240,7 +240,7 @@ export const levelCopy = {
 
   // ── Tier 3 · interface puzzles ──────────────────────────────────────────
   'window-shopping': {
-    tier: 3, title: 'Window shopping', seconds: 25,
+    tier: 3, title: 'Window shopping',
     terms: [
       "Several important notices have been placed over this agreement for your benefit.",
       "Most notices may be dismissed at your leisure. One of them is load-bearing and must never be closed under any circumstances.",
@@ -262,7 +262,7 @@ export const levelCopy = {
     answer: 'Press pop() five times, then click Agree. clear() fails; push() adds more junk.',
   },
   'merge-conflict': {
-    tier: 3, title: 'Merge conflict', seconds: 25,
+    tier: 3, title: 'Merge conflict',
     terms: [
       "You and Codey both edited consent.ts at the same time. Git is upset.",
       "Your version says one thing. Codey’s incoming version says another. As always, Codey is right.",
@@ -273,7 +273,7 @@ export const levelCopy = {
     answer: '“Accept Incoming Change” → “Commit merge” → Agree. Current or Both fail.',
   },
   'sudo': {
-    tier: 3, title: 'Permission denied', seconds: 30,
+    tier: 3, title: 'Permission denied',
     terms: [
       "Agreements are now administered through the CSC terminal.",
       "Regular students do not have permission to agree. Agreement is a privilege reserved for superusers.",
@@ -284,7 +284,7 @@ export const levelCopy = {
     answer: 'Type `sudo agree` and press Enter, then click Agree.',
   },
   'compile': {
-    tier: 3, title: 'Compile & comply', seconds: 25,
+    tier: 3, title: 'Compile & comply',
     terms: [
       "Your consent is now determined by a small JavaScript function written at 3 a.m. the night before the deadline.",
       "The function contains exactly two typos. Any word in the code may be clicked to try a different spelling.",
@@ -306,7 +306,7 @@ export const levelCopy = {
     answer: 'Sweep the flashlight to the lower-left and click Agree (not the Disagrees).',
   },
   'cookies': {
-    tier: 3, title: 'Cookie preferences', seconds: 30,
+    tier: 3, title: 'Cookie preferences',
     terms: [
       "Before we can show you the terms, we need to talk about cookies.",
       "Accepting all cookies is an agreement to cookies, not to these terms, and shall not count.",
@@ -328,7 +328,7 @@ export const levelCopy = {
     answer: 'Type “agree” on the keyboard (or on-screen keys), then press Enter or click the lit button. Clicking early fails.',
   },
   'two-factor': {
-    tier: 3, title: 'Two-factor agreement', seconds: 25,
+    tier: 3, title: 'Two-factor agreement',
     terms: [
       "For your security, a six-digit verification code has been sent to Codey’s phone.",
       "Codey’s phone is somewhere on this desk. It buzzes when it feels ignored.",
@@ -348,7 +348,7 @@ export const levelCopy = {
     answer: 'Open the Edit menu → “Undo Disagree” (or Ctrl/⌘+Z), then click Agree.',
   },
   'page-five': {
-    tier: 3, title: 'Page 5 of 5', seconds: 25,
+    tier: 3, title: 'Page 5 of 5',
     terms: [
       "The Agree button is located on page 5 of 5.",
       "Access to page 5 requires CSC Premium™ ($49.99/term). Navigation buttons will stop at page 4.",
@@ -391,7 +391,7 @@ export const levelCopy = {
     answer: 'Drag the hue slider to ~217 (blue, 208–226), then click Agree. Wrong colour fails.',
   },
   'recursion': {
-    tier: 3, title: 'Recursion', seconds: 25,
+    tier: 3, title: 'Recursion',
     terms: [
       "To agree to this agreement, you must first agree to the agreement inside it.",
       "That agreement contains the same clause. So does the one inside that.",
@@ -404,7 +404,7 @@ export const levelCopy = {
 
   // ── Tier 4 · contraptions ───────────────────────────────────────────────
   'claw': {
-    tier: 4, title: 'Claw & order', seconds: 35,
+    tier: 4, title: 'Claw & order', seconds: 45,
     terms: [
       "Your Agree button has been placed inside the CSC claw machine as a prize.",
       "The machine is on free play, courtesy of Codey. The claw is surprisingly strong, so please make sure it is holding the right prize.",
@@ -415,7 +415,7 @@ export const levelCopy = {
     answer: 'Hold ▶ until the claw sits over the blue AGREE capsule, press DROP, then click Agree in the tray. Grabbing other capsules fails.',
   },
   'goose-guard': {
-    tier: 4, title: 'Goose on the loose', seconds: 25,
+    tier: 4, title: 'Goose on the loose',
     terms: [
       "A Canada goose has taken up residence on the Agree button.",
       "Under the Ring Road Treaty, geese may not be touched, moved, or argued with.",
@@ -426,7 +426,7 @@ export const levelCopy = {
     answer: 'Drag the bread to the other side (or use arrow keys on it). The goose follows; click Agree. Clicking the goose fails.',
   },
   'vending': {
-    tier: 4, title: 'Vending agreement', seconds: 35,
+    tier: 4, title: 'Vending agreement', seconds: 45,
     terms: [
       "Agreements are now sold in the Math & Computer building vending machine, in slot B3.",
       "All items cost $1.00. The machine accepts quarters and loonies. It is too old to understand toonies.",
@@ -437,7 +437,7 @@ export const levelCopy = {
     answer: 'Insert $1.00 (loonie, or four quarters), key B → 3 → OK, click Agree in the tray. Wrong code fails.',
   },
   'inspect': {
-    tier: 4, title: 'Inspect element', seconds: 25,
+    tier: 4, title: 'Inspect element',
     terms: [
       "The Agree button on this page has been disabled by the administration.",
       "Ordinary users cannot change this. Developers, however, have tools for exactly this kind of situation.",
@@ -448,7 +448,7 @@ export const levelCopy = {
     answer: 'Click the </> button, click the `disabled` attribute to remove it, then click Agree.',
   },
   'upside-down': {
-    tier: 4, title: 'Upside down', seconds: 25,
+    tier: 4, title: 'Upside down',
     terms: [
       "This agreement was printed by our Australian office and arrived upside down.",
       "Signing a document you cannot read is not legally valid, even in Australia.",
@@ -459,7 +459,7 @@ export const levelCopy = {
     answer: 'Turn the knob (drag or arrow keys) until the document is upright, then Agree. Agreeing while tilted fails.',
   },
   'combination': {
-    tier: 4, title: 'Combination clause', seconds: 30,
+    tier: 4, title: 'Combination clause',
     terms: [
       "The Agree button has been locked in a safe for safekeeping.",
       "Codey could never remember the combination, so Codey hid it in the fine print below, in order.",
@@ -469,7 +469,7 @@ export const levelCopy = {
     answer: 'Set the dials to 2-0-6, press Open, then Agree.',
   },
   'scratch': {
-    tier: 4, title: 'Scratch & sign', seconds: 30,
+    tier: 4, title: 'Scratch & sign',
     terms: [
       "Your agreement has been printed on a scratch-off card.",
       "Only one panel is a winner. Clicking a losing panel is legally equivalent to disagreeing.",
@@ -480,7 +480,7 @@ export const levelCopy = {
     answer: 'Scratch the third (right) panel and click Agree. Clicking a revealed Disagree fails.',
   },
   'codey-says': {
-    tier: 4, title: 'Codey says', seconds: 30,
+    tier: 4, title: 'Codey says',
     terms: [
       "In this agreement, only Codey’s orders are legally binding.",
       "Orders that do not begin with “Codey says” were issued by an impostor and must be ignored.",
@@ -491,7 +491,7 @@ export const levelCopy = {
     answer: 'Do nothing until the sign reads “Codey says: click Agree”, then click Agree.',
   },
   'exam': {
-    tier: 4, title: 'Self-referential exam', seconds: 25,
+    tier: 4, title: 'Self-referential exam',
     terms: [
       "To agree, you must first pass the final exam for CS 135: Designing Functional Agreements.",
       "The exam has one question and exactly one correct answer. Calculators are not permitted. Logic is strongly encouraged.",
@@ -503,7 +503,7 @@ export const levelCopy = {
 
   // ── Tier 5 · boss levels ────────────────────────────────────────────────
   'mirror-cursor': {
-    tier: 5, title: 'The other way round', seconds: 30,
+    tier: 5, title: 'The other way round',
     terms: [
       "This agreement is being displayed through a mirror, for reasons our IT department is still investigating.",
       "Your cursor has been reflected through the centre of the page. Everything you do happens on the opposite side.",
@@ -514,7 +514,7 @@ export const levelCopy = {
     answer: 'Move your real pointer to the bottom-right until the blue cursor is on Agree (top-left), then click. Arrow keys + Enter also work.',
   },
   'pipes': {
-    tier: 5, title: 'Connect the dots', seconds: 40,
+    tier: 5, title: 'Connect the dots', seconds: 50,
     terms: [
       "The Agree button lost power during a campus-wide outage.",
       "Power may be restored by reconnecting the plumbing between the generator and the button. Each pipe turns when tapped.",
@@ -525,7 +525,7 @@ export const levelCopy = {
     answer: 'Row1 col1 ─, row1 col2 ┐, row2 col2 │, row3 col2 └, row3 col3 ─, row3 col4 ─. Then Agree.',
   },
   'defuse': {
-    tier: 5, title: 'The final countdown', seconds: 25,
+    tier: 5, title: 'The final countdown',
     terms: [
       "This agreement is protected by a small explosive device. Please do not panic.",
       "Wire protocol: if a gold wire exists, cut it first. Never cut red. The black wire is always cut last. Blue is decorative.",
@@ -536,7 +536,7 @@ export const levelCopy = {
     answer: 'Cut the gold wire, then the black wire, then Agree. Red fails; black first fails.',
   },
   'unanimous': {
-    tier: 5, title: 'Unanimous consent', seconds: 35,
+    tier: 5, title: 'Unanimous consent', seconds: 45,
     terms: [
       "This agreement requires the unanimous approval of the CSC committee.",
       "Committee members are easily influenced: persuading one member also changes the minds of the members directly beside, above, and below them.",
@@ -547,7 +547,7 @@ export const levelCopy = {
     answer: 'Click top-left, then centre. Everyone turns blue → Agree.',
   },
   'ascii': {
-    tier: 5, title: 'Low-level consent', seconds: 30,
+    tier: 5, title: 'Low-level consent',
     terms: [
       "This agreement is processed by a very old terminal that only accepts consent in 8-bit ASCII.",
       "Fortunately, the terminal is not picky: the first letter of “Agree”, in uppercase, will suffice.",

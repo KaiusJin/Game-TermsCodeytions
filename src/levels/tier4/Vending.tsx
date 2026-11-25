@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './Vending.module.css';
@@ -38,7 +38,7 @@ export function Vending({ onSolved, onFailed }: LevelProps) {
         <div className={s.vendGlass}>
           {snacks.map((snack, i) => (
             <div key={snack} className={s.slotItem}>
-              <motion.span className={s.snack} data-agree={i === 5} animate={dropping === i ? { y: 220, rotate: 25, opacity: 0 } : { y: 0 }} transition={{ duration: .7, ease: 'easeIn' }}>{snack}</motion.span>
+              <m.span className={s.snack} data-agree={i === 5} animate={dropping === i ? { y: 220, rotate: 25, opacity: 0 } : { y: 0 }} transition={{ duration: .7, ease: 'easeIn' }}>{snack}</m.span>
               <span className={s.code}>{codes[i]} · $1.00</span>
             </div>
           ))}

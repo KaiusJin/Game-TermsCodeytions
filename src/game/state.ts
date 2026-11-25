@@ -11,6 +11,10 @@ export type GameState = {
   completedLevels: string[];
   deadline: number;
   practice: boolean;
+  /** Disagree stamps per run position (failures and timeouts; manual restarts don't count). */
+  failures: number[];
+  startedAt: number;
+  finishedAt: number;
 };
 export type GameAction =
   | { type: 'home' }
@@ -18,17 +22,21 @@ export type GameAction =
   | { type: 'fail'; attempt: number }
   | { type: 'start'; run: string[]; now: number; practice?: boolean };
 
-export const defaultSeconds = 20;
+export const defaultSeconds = 30;
 export const runLength = 15;
 
 export function attemptDuration(levelId: string): number {
   return ((isLevelId(levelId) ? levelMeta[levelId].seconds : undefined) ?? defaultSeconds) * 1000;
 }
 
-export const initialState: GameState = { screen: 'home', completed: false, attempt: 0, run: [], index: 0, completedLevels: [], deadline: 0, practice: false };
+export const initialState: GameState = { screen: 'home', completed: false, attempt: 0, run: [], index: 0, completedLevels: [], deadline: 0, practice: false, failures: [], startedAt: 0, finishedAt: 0 };
 
 export function currentLevelId(state: GameState): string {
   return state.run[state.index] ?? levelIds[0];
+}
+
+function withFailure(state: GameState): GameState {
+  return { ...state, screen: 'failed', failures: state.failures.map((n, i) => (i === state.index ? n + 1 : n)) };
 }
 
 export function gameReducer(state: GameState, action: GameAction): GameState {
@@ -36,7 +44,10 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
     case 'start': {
       const run = action.run.filter(isLevelId);
       if (run.length === 0) return state;
-      return { ...state, screen: 'playing', run, index: 0, practice: action.practice ?? false, deadline: action.now + attemptDuration(run[0]), attempt: state.attempt + 1 };
+      return {
+        ...state, screen: 'playing', run, index: 0, practice: action.practice ?? false, deadline: action.now + attemptDuration(run[0]), attempt: state.attempt + 1,
+        failures: run.map(() => 0), startedAt: action.now, finishedAt: 0,
+      };
     }
     case 'home':
       return { ...state, screen: 'home' };
@@ -45,10 +56,10 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
         ? { ...state, screen: 'playing', deadline: action.now + attemptDuration(currentLevelId(state)), attempt: state.attempt + 1 }
         : state;
     case 'fail':
-      return state.screen === 'playing' && state.attempt === action.attempt ? { ...state, screen: 'failed' } : state;
+      return state.screen === 'playing' && state.attempt === action.attempt ? withFailure(state) : state;
     case 'solve': {
       if (state.screen !== 'playing' || state.attempt !== action.attempt) return state;
-      if (action.now >= state.deadline) return { ...state, screen: 'failed' };
+      if (action.now >= state.deadline) return withFailure(state);
       const id = currentLevelId(state);
       return { ...state, screen: 'solved', completedLevels: [...new Set([...state.completedLevels, id])] };
     }
@@ -58,7 +69,7 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       const next = state.run[index];
       return next
         ? { ...state, screen: 'playing', index, deadline: action.now + attemptDuration(next), attempt: state.attempt + 1 }
-        : { ...state, screen: 'finished', completed: state.completed || !state.practice };
+        : { ...state, screen: 'finished', completed: state.completed || !state.practice, finishedAt: action.now };
     }
   }
 }

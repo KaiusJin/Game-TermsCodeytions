@@ -16,7 +16,8 @@ npm run dev
 - 蓝白色首页、游戏界面、成功反馈与完成页。
 - 50 关关卡池，每次随机抽取 15 关，难度递增。
 - 使用现有 Codey 插画和 CSC 标志。
-- 每关有两级提示、重试和本地收集记录。
+- 每关有两级提示、重试和本地收集记录；完成页显示用时、失败次数，并可复制分享结果。
+- Codey 会对 Agree/Disagree 做出反应；印章音效由 Web Audio 合成，可在顶栏关闭。
 - 隐藏答案面板（测试用）：在页面空白处键入 `codey`，或快速连点页脚 ✳ 五次。
 - 支持窄屏、键盘操作和减少动态效果设置。
 
@@ -27,6 +28,7 @@ npm run typecheck
 npm run lint
 npm run test
 npm run build
+npm run test:e2e   # Playwright：逐关自动通关 50 关（首次需 npx playwright install chromium）
 npm run preview
 ```
 

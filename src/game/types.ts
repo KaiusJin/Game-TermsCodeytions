@@ -17,4 +17,4 @@ export type LevelMeta = {
   answer: string;
 };
 
-export type LevelDef = LevelMeta & { id: string; Component: ComponentType<LevelProps> };
+export type LevelDef = LevelMeta & { id: string; Component: ComponentType<LevelProps>; preload: () => Promise<unknown> };

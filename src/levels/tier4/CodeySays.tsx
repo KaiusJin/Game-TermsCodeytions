@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { asset } from '../../assets';
 import { Agree, Disagree, Row, Stage } from '../shared/controls';
@@ -20,10 +20,10 @@ export function CodeySays({ onSolved, onFailed }: LevelProps) {
       <div className={s.says}>
         <img src={asset('codey/codey_sitting.svg')} alt="" />
         <AnimatePresence mode="wait">
-          <motion.div key={i} className={s.order} initial={{ scale: .8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ opacity: 0 }}>
+          <m.div key={i} className={s.order} initial={{ scale: .8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ opacity: 0 }}>
             {orders[i]}
-            <motion.i initial={{ scaleX: 1 }} animate={{ scaleX: 0 }} transition={{ duration: 2.3, ease: 'linear' }} />
-          </motion.div>
+            <m.i initial={{ scaleX: 1 }} animate={{ scaleX: 0 }} transition={{ duration: 2.3, ease: 'linear' }} />
+          </m.div>
         </AnimatePresence>
       </div>
       <Row>

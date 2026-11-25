@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Row, Stage } from '../shared/controls';
 import s from './AreYouSure.module.css';
@@ -21,11 +21,11 @@ export function AreYouSure({ onSolved, onFailed }: LevelProps) {
       <Row><Agree onClick={() => setStep(0)} disabled={step >= 0} /></Row>
       <AnimatePresence mode="wait">
         {step >= 0 && (
-          <motion.div key={step} className={s.modal} role="alertdialog" aria-label={sureQuestions[step]} initial={{ scale: .7, opacity: 0, rotate: step % 2 ? 2 : -2 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: .9, opacity: 0 }} transition={{ duration: .18 }}>
+          <m.div key={step} className={s.modal} role="alertdialog" aria-label={sureQuestions[step]} initial={{ scale: .7, opacity: 0, rotate: step % 2 ? 2 : -2 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: .9, opacity: 0 }} transition={{ duration: .18 }}>
             <span className={s.modalBar}>confirm ({step + 1}/{sureQuestions.length})</span>
             <p>{sureQuestions[step]}</p>
             <div className={s.modalButtons}>{step % 2 === 0 ? [yes, no] : [no, yes]}</div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </Stage>

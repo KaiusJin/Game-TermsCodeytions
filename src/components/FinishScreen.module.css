@@ -6,3 +6,9 @@
 .finish h1 { font: 800 clamp(36px, 4.5vw, 56px)/1.1 var(--serif); letter-spacing: -1.5px; white-space: pre-line; margin: 18px 0; }
 .finish > p { max-width: 470px; margin: 0 auto; color: var(--muted); line-height: 1.8; font-size: 15px; }
 .finishActions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+.result { display: grid; justify-items: center; gap: 16px; width: min(420px, 100%); margin: 26px auto 0; padding: 22px; border: 2px solid var(--ink); border-radius: 16px; background: var(--paper); box-shadow: 0 6px 0 var(--ink); }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; margin: 0; }
+.stats div { display: grid; gap: 4px; }
+.stats dt { font: 600 10px var(--mono); letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.stats dd { margin: 0; font: 800 26px var(--serif); }
+.grid { margin: 0; font-size: 22px; line-height: 1.25; letter-spacing: 2px; }

@@ -1,7 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { levelById, levels } from './levels';
 import { pickRun, tierQuota } from './run';
-import { attemptDuration, currentLevelId, gameReducer, initialState, loadProgress, runLength, saveProgress } from './state';
+import { formatDuration, resultGrid, shareText } from './share';
+import { attemptDuration, currentLevelId, defaultSeconds, gameReducer, initialState, loadProgress, runLength, saveProgress } from './state';
 
 afterEach(() => vi.unstubAllGlobals());
 
@@ -12,7 +13,8 @@ describe('level pool', () => {
     expect(levels).toHaveLength(50);
     expect(new Set(levels.map(level => level.id)).size).toBe(50);
     for (const level of levels) {
-      expect(level.Component).toBeTypeOf('function');
+      expect(level.Component).toBeDefined();
+      expect(level.preload).toBeTypeOf('function');
       expect(level.hints).toHaveLength(2);
       expect(level.answer.length).toBeGreaterThan(0);
     }
@@ -82,7 +84,7 @@ describe('agreement flow', () => {
     const claw = levelById('claw')!;
     const started = gameReducer(initialState, { type: 'start', run: [claw.id], now: 1000 });
     expect(started.deadline).toBe(1000 + attemptDuration(claw.id));
-    expect(attemptDuration(claw.id)).toBe((claw.seconds ?? 20) * 1000);
+    expect(attemptDuration(claw.id)).toBe((claw.seconds ?? defaultSeconds) * 1000);
   });
 
   it('shows failure before resetting the same agreement and ignores late callbacks', () => {
@@ -107,6 +109,31 @@ describe('agreement flow', () => {
     expect(gameReducer(initialState, { type: 'start', run: ['nope'], now: 0 })).toBe(initialState);
     const started = gameReducer(initialState, { now: 0, type: 'start', run });
     expect(gameReducer(started, { now: 0, type: 'continue', attempt: started.attempt })).toBe(started);
+  });
+});
+
+describe('run stats', () => {
+  it('counts Disagrees per agreement, including timeouts but not manual restarts', () => {
+    let state = gameReducer(initialState, { now: 1000, type: 'start', run });
+    state = gameReducer(state, { type: 'fail', attempt: state.attempt });
+    state = gameReducer(state, { type: 'retry', attempt: state.attempt, now: 2000 });
+    state = gameReducer(state, { type: 'retry', attempt: state.attempt, now: 2000 });
+    state = gameReducer(state, { type: 'solve', attempt: state.attempt, now: state.deadline });
+    expect(state.failures).toEqual([2, 0, 0]);
+    for (let i = 0; i < run.length; i++) {
+      if (state.screen === 'failed') state = gameReducer(state, { type: 'retry', attempt: state.attempt, now: 3000 });
+      state = gameReducer(state, { type: 'solve', attempt: state.attempt, now: 3000 });
+      state = gameReducer(state, { type: 'continue', attempt: state.attempt, now: 61_000 });
+    }
+    expect(state.screen).toBe('finished');
+    expect(state.finishedAt - state.startedAt).toBe(60_000);
+  });
+
+  it('formats a shareable result', () => {
+    expect(formatDuration(222_400)).toBe('3:42');
+    expect(formatDuration(3_729_000)).toBe('1:02:09');
+    expect(resultGrid([0, 1, 2, 0, 0, 0])).toBe('🟦🟨🟥🟦🟦\n🟦');
+    expect(shareText([0, 1], 61_000, 'https://example.test')).toBe('Terms & Codeytions 📜🐕\nAgreed to 2 terms in 1:01 · 1 disagreement\n🟦🟨\nhttps://example.test');
   });
 });
 

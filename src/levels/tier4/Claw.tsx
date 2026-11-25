@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type MouseEvent, type PointerEvent } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './Claw.module.css';
@@ -80,20 +80,20 @@ export function Claw({ onSolved, onFailed }: LevelProps) {
         <div className={s.marquee}><span>★</span> CSC ARCADE <span>★</span><small>FREE PLAY · 1 CREDIT</small></div>
         <div className={s.glass}>
           <div className={s.rail} />
-          <motion.div className={s.carriage} initial={false} animate={{ left: `${atChute ? chuteX : x}%` }} transition={{ duration: phase === 'carry' ? 1 : 0, ease: 'easeInOut' }}>
+          <m.div className={s.carriage} initial={false} animate={{ left: `${atChute ? chuteX : x}%` }} transition={{ duration: phase === 'carry' ? 1 : 0, ease: 'easeInOut' }}>
             <div className={s.trolley} />
-            <motion.div className={s.cable} initial={false} animate={{ height: lowered ? 150 : 18 }} transition={{ duration: .9, ease: 'easeInOut' }} />
+            <m.div className={s.cable} initial={false} animate={{ height: lowered ? 150 : 18 }} transition={{ duration: .9, ease: 'easeInOut' }} />
             <svg className={s.claw} viewBox="0 0 64 52" aria-hidden="true">
               <rect x="22" y="0" width="20" height="12" rx="3" fill="#16140f" />
-              <motion.path initial={false} animate={{ d: closed ? 'M24 10 L14 30 L26 46' : 'M24 10 L6 30 L12 48' }} transition={{ duration: .3 }} stroke="#1d2f52" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-              <motion.path initial={false} animate={{ d: closed ? 'M40 10 L50 30 L38 46' : 'M40 10 L58 30 L52 48' }} transition={{ duration: .3 }} stroke="#1d2f52" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+              <m.path initial={false} animate={{ d: closed ? 'M24 10 L14 30 L26 46' : 'M24 10 L6 30 L12 48' }} transition={{ duration: .3 }} stroke="#1d2f52" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+              <m.path initial={false} animate={{ d: closed ? 'M40 10 L50 30 L38 46' : 'M40 10 L58 30 L52 48' }} transition={{ duration: .3 }} stroke="#1d2f52" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             {carrying && grabbed !== null && <span className={`${s.capsule} ${s.carried}`} style={{ background: capsules[grabbed].color }}>{capsules[grabbed].label}</span>}
-          </motion.div>
+          </m.div>
           {capsules.map((c, i) => {
             if (grabbed === i && (carrying || phase === 'done')) return null;
             if (grabbed === i && phase === 'release') {
-              return <motion.span key={i} className={s.capsule} style={{ left: `${chuteX}%`, background: c.color }} initial={{ top: 60 }} animate={{ top: 300, rotate: 40 }} transition={{ duration: .6, ease: 'easeIn' }}>{c.label}</motion.span>;
+              return <m.span key={i} className={s.capsule} style={{ left: `${chuteX}%`, background: c.color }} initial={{ top: 60 }} animate={{ top: 300, rotate: 40 }} transition={{ duration: .6, ease: 'easeIn' }}>{c.label}</m.span>;
             }
             return <span key={i} className={`${s.capsule} ${s.resting}`} style={{ left: `${c.x}%`, background: c.color }} data-agree={c.agree ?? false}>{c.label}</span>;
           })}
@@ -102,7 +102,7 @@ export function Claw({ onSolved, onFailed }: LevelProps) {
         </div>
         <div className={s.panel}>
           <div className={s.tray}>
-            <AnimatePresence>{phase === 'done' && <motion.div initial={{ y: -30, scale: .6 }} animate={{ y: 0, scale: 1 }}><Agree onClick={onSolved} /></motion.div>}</AnimatePresence>
+            <AnimatePresence>{phase === 'done' && <m.div initial={{ y: -30, scale: .6 }} animate={{ y: 0, scale: 1 }}><Agree onClick={onSolved} /></m.div>}</AnimatePresence>
             {phase !== 'done' && <span>prize tray</span>}
           </div>
           <div className={s.controls}>

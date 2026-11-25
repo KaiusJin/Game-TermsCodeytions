@@ -1,5 +1,5 @@
 import { useRef, useState, type PointerEvent } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Disagree, Stage } from '../shared/controls';
 import s from './UpsideDown.module.css';
@@ -20,11 +20,11 @@ export function UpsideDown({ onSolved, onFailed }: LevelProps) {
   return (
     <Stage className={s.rotateStage}>
       <div className={s.rotDocWrap}>
-        <motion.div className={s.rotDoc} animate={{ rotate: angle }} transition={{ type: 'spring', stiffness: 200, damping: 22 }}>
+        <m.div className={s.rotDoc} animate={{ rotate: angle }} transition={{ type: 'spring', stiffness: 200, damping: 22 }}>
           <strong>Terms (AU edition)</strong>
           <p>No worries, mate. Sign below.</p>
           <div className={s.rotButtons}><Disagree onClick={onFailed} /><Agree onClick={() => (upright ? onSolved() : onFailed())} /></div>
-        </motion.div>
+        </m.div>
       </div>
       <div className={s.knobBox}>
         <div ref={knob} className={s.knob} role="slider" tabIndex={0} aria-label="Rotate document" aria-valuemin={-180} aria-valuemax={180} aria-valuenow={normalise(angle)}

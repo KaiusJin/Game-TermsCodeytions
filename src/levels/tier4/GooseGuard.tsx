@@ -1,5 +1,5 @@
 import { useRef, useState, type KeyboardEvent } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { m, useMotionValue } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Goose } from '../shared/art';
 import { Agree, Stage } from '../shared/controls';
@@ -37,16 +37,16 @@ export function GooseGuard({ onSolved, onFailed }: LevelProps) {
       <div ref={area} className={s.gooseArea}>
         <Agree className={s.gooseAgree} style={{ left: `${gooseHome.left * 100}%`, top: `${gooseHome.top * 100}%` }} onClick={onSolved} />
         <div className={s.gooseAnchor} style={{ left: `${gooseHome.left * 100}%`, top: `${gooseHome.top * 100}%` }}>
-          <motion.button type="button" className={s.goose} aria-label="Goose (do not touch)" animate={{ x: goose.x, y: goose.y }} transition={{ duration: 1.1, ease: 'easeInOut' }}
+          <m.button type="button" className={s.goose} aria-label="Goose (do not touch)" animate={{ x: goose.x, y: goose.y }} transition={{ duration: 1.1, ease: 'easeInOut' }}
             onPointerEnter={() => setHonk(true)} onPointerLeave={() => setHonk(false)} onClick={onFailed}>
-            <motion.span animate={{ rotate: [0, -4, 4, 0] }} transition={{ repeat: Infinity, duration: .6 }} style={{ display: 'block' }}><Goose size={96} /></motion.span>
+            <m.span animate={{ rotate: [0, -4, 4, 0] }} transition={{ repeat: Infinity, duration: .6 }} style={{ display: 'block' }}><Goose size={96} /></m.span>
             {honk && <span className={s.honk}>HONK!</span>}
-          </motion.button>
+          </m.button>
         </div>
-        <motion.div ref={bread} className={s.bread} style={{ x: bx, y: by }} drag dragConstraints={area} dragMomentum={false} onDragEnd={follow}
+        <m.div ref={bread} className={s.bread} style={{ x: bx, y: by }} drag dragConstraints={area} dragMomentum={false} onDragEnd={follow}
           tabIndex={0} role="button" aria-label="Bread (drag, or use arrow keys)" onKeyDown={nudge} whileDrag={{ scale: 1.15 }}>
           🍞
-        </motion.div>
+        </m.div>
       </div>
     </Stage>
   );

@@ -1,5 +1,5 @@
 import { useRef, useState, type RefObject } from 'react';
-import { AnimatePresence, motion, useDragControls } from 'framer-motion';
+import { AnimatePresence, m, useDragControls } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './WindowShopping.module.css';
@@ -16,7 +16,7 @@ const popups: Popup[] = [
 function PopupWindow({ popup, area, onClose, z }: { popup: Popup; area: RefObject<HTMLDivElement | null>; onClose: () => void; z: number }) {
   const controls = useDragControls();
   return (
-    <motion.div
+    <m.div
       className={s.popup} style={{ width: popup.w, zIndex: z, x: popup.x, y: popup.y }}
       drag dragControls={controls} dragListener={false} dragConstraints={area} dragMomentum={false}
       initial={{ scale: .6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: .6, opacity: 0 }} transition={{ delay: popup.id * .06 }}
@@ -27,7 +27,7 @@ function PopupWindow({ popup, area, onClose, z }: { popup: Popup; area: RefObjec
         <button type="button" aria-label={`Close ${popup.title}`} onPointerDown={e => e.stopPropagation()} onClick={onClose}>×</button>
       </div>
       <p>{popup.body}</p>
-    </motion.div>
+    </m.div>
   );
 }
 

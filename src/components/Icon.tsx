@@ -1,4 +1,4 @@
-type IconName = 'arrow' | 'check' | 'book' | 'spark' | 'reset' | 'close' | 'grid' | 'back';
+type IconName = 'arrow' | 'check' | 'book' | 'spark' | 'reset' | 'close' | 'grid' | 'back' | 'sound' | 'mute';
 
 const paths: Record<IconName, string> = {
   arrow: 'M4 12h16m-6-6 6 6-6 6',
@@ -9,6 +9,8 @@ const paths: Record<IconName, string> = {
   close: 'm6 6 12 12M6 18 18 6',
   grid: 'M3 3h6v6H3V3Zm12 0h6v6h-6V3ZM3 15h6v6H3v-6Zm12 0h6v6h-6v-6Z',
   back: 'M20 12H4m6-6-6 6 6 6',
+  sound: 'M4 9v6h4l5 4V5L8 9H4Zm12 0a4 4 0 0 1 0 6m2.5-9a8 8 0 0 1 0 12',
+  mute: 'M4 9v6h4l5 4V5L8 9H4Zm12 1 5 5m0-5-5 5',
 };
 
 export function Icon({ name, size = 20 }: { name: IconName; size?: number }) {

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './OutOfTheWay.module.css';
@@ -11,7 +11,7 @@ export function OutOfTheWay({ onSolved, onFailed }: LevelProps) {
     <Stage className={s.dragStage}>
       <div ref={area} className={s.dragArea}>
         <Agree className={s.under} onClick={onSolved} />
-        <motion.button
+        <m.button
           type="button"
           className={s.cover}
           drag dragConstraints={area} dragElastic={0.08} dragMomentum={false}
@@ -22,7 +22,7 @@ export function OutOfTheWay({ onSolved, onFailed }: LevelProps) {
           <span className={s.grip} aria-hidden="true">⋮⋮</span>
           Disagree
           <small>Recommended by our lawyers</small>
-        </motion.button>
+        </m.button>
       </div>
     </Stage>
   );

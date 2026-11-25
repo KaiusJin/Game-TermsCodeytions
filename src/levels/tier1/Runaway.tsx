@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './Runaway.module.css';
@@ -41,9 +41,9 @@ export function Runaway({ onSolved }: LevelProps) {
     <Stage className={s.runStage} onPointerMove={flee}>
       <div ref={stage} className={s.runArea}>
         {pos && (
-          <motion.div className={s.runner} initial={false} animate={{ x: pos.x, y: pos.y }} transition={{ type: 'spring', stiffness: 500, damping: 30 }}>
+          <m.div className={s.runner} initial={false} animate={{ x: pos.x, y: pos.y }} transition={{ type: 'spring', stiffness: 500, damping: 30 }}>
             <Agree onClick={onSolved} style={{ width: runner.w, height: runner.h }} />
-          </motion.div>
+          </m.div>
         )}
       </div>
     </Stage>

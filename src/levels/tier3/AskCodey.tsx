@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { asset } from '../../assets';
 import { Agree, Stage } from '../shared/controls';
@@ -10,15 +10,15 @@ export function AskCodey({ onSolved, onFailed }: LevelProps) {
   return (
     <Stage className={s.askStage}>
       <div className={s.codeyBox}>
-        <motion.button type="button" className={s.codeyButton} aria-label="Ask Codey" onClick={() => setAsked(true)} animate={asked ? { y: [0, -14, 0] } : {}} transition={{ duration: .4 }}>
+        <m.button type="button" className={s.codeyButton} aria-label="Ask Codey" onClick={() => setAsked(true)} animate={asked ? { y: [0, -14, 0] } : {}} transition={{ duration: .4 }}>
           <img src={asset('codey/codey_sitting.svg')} alt="" />
-        </motion.button>
+        </m.button>
         <AnimatePresence>
-          {asked && <motion.div className={s.bubble} initial={{ scale: 0 }} animate={{ scale: 1 }}>Woof! I agree.</motion.div>}
+          {asked && <m.div className={s.bubble} initial={{ scale: 0 }} animate={{ scale: 1 }}>Woof! I agree.</m.div>}
           {asked && (
-            <motion.button type="button" className={s.sign} onClick={onSolved} initial={{ y: 60, rotate: 0, opacity: 0 }} animate={{ y: 0, rotate: -8, opacity: 1 }}>
+            <m.button type="button" className={s.sign} onClick={onSolved} initial={{ y: 60, rotate: 0, opacity: 0 }} animate={{ y: 0, rotate: -8, opacity: 1 }}>
               AGREE
-            </motion.button>
+            </m.button>
           )}
         </AnimatePresence>
       </div>

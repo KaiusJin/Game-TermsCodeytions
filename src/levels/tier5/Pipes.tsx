@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import type { LevelProps } from '../../game/types';
 import { Agree, Stage } from '../shared/controls';
 import s from './Pipes.module.css';
@@ -56,9 +56,9 @@ export function Pipes({ onSolved }: LevelProps) {
           {solvedPipes.map((row, r) => row.map((base, c) => (
             <button key={`${r},${c}`} type="button" className={s.pipe} data-on={cells.has(`${r},${c}`)} aria-label={`Rotate pipe row ${r + 1} column ${c + 1}`}
               onClick={() => setTurns(turns.map((tr, i) => tr.map((v, j) => (i === r && j === c ? v + 1 : v))))}>
-              <motion.span className={s.pipeSpin} initial={false} animate={{ rotate: turns[r][c] * 90 }} transition={{ type: 'spring', stiffness: 400, damping: 26 }}>
+              <m.span className={s.pipeSpin} initial={false} animate={{ rotate: turns[r][c] * 90 }} transition={{ type: 'spring', stiffness: 400, damping: 26 }}>
                 <PipeTile base={base} on={cells.has(`${r},${c}`)} />
-              </motion.span>
+              </m.span>
             </button>
           )))}
         </div>

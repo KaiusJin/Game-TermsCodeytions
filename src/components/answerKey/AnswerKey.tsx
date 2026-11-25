@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { levelById, levels } from '../../game/levels';
+import { defaultSeconds } from '../../game/state';
 import styles from './AnswerKey.module.css';
 
 export function AnswerKey({ currentId, onPlay, onClose }: { currentId: string | null; onPlay: (id: string) => void; onClose: () => void }) {
@@ -13,7 +14,7 @@ export function AnswerKey({ currentId, onPlay, onClose }: { currentId: string | 
       </div>
       {current ? (
         <div className={styles.current}>
-          <small>{current.id} · tier {current.tier} · {current.seconds ?? 20}s</small>
+          <small>{current.id} · tier {current.tier} · {current.seconds ?? defaultSeconds}s</small>
           <strong>{current.title}</strong>
           <p>{current.answer}</p>
         </div>
